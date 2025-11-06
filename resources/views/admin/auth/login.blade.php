@@ -1,12 +1,12 @@
 @extends('admin.auth.master')
 
 {{-- update title --}}
-@section('title', 'login')
+@section('title', __('keywords.login'))
 
 {{-- content section --}}
 @section('content')
 
-    <body class="light">
+    <body class="light @if (LaravelLocalization::getCurrentLocale() == 'ar') rtl @endif">
         <div class="wrapper vh-100">
             <div class="row align-items-center h-100">
                 <form method="POST" action="{{ route('admin.login') }}" class="col-lg-3 col-md-4 col-10 mx-auto text-center">
@@ -26,34 +26,35 @@
                         </svg>
                     </a>
 
-                    <h1 class="h6 mb-3">Sign in</h1>
+                    <h1 class="h6 mb-3">{{ __('keywords.sign-in') }}</h1>
 
                     {{-- email address --}}
                     <div class="form-group">
-                        <label for="email" class="sr-only">{{ __('Email address') }}</label>
+                        {{-- <label for="email" class="sr-only">{{ __('keywords.email address') }}</label> --}}
                         <input type="email" id="email" name="email" class="form-control form-control-lg"
-                            placeholder="Email address" autofocus="true" value="{{ old('email') }}">
+                            placeholder="{{ __('keywords.email-address') }}" autofocus="true" value="{{ old('email') }}">
                         <x-input-error :messages="$errors->get('email')" class="mt-2" />
                     </div>
 
                     {{-- password --}}
                     <div class="form-group">
-                        <label for="password" class="sr-only">{{ __('Password') }}</label>
+                        {{-- <label for="password" class="sr-only">{{ __('Password') }}</label> --}}
                         <input type="password" name="password" id="password" class="form-control form-control-lg"
-                            placeholder="Password">
+                            placeholder="{{ __('keywords.password') }}">
                         <x-input-error :messages="$errors->get('password')" class="mt-2" />
                     </div>
 
                     {{-- remember me --}}
                     <div class="checkbox mb-3">
                         <label>
-                            <input type="checkbox" name="remember" value="remember-me"> {{ __('Remember Me') }}
+                            <input type="checkbox" name="remember" value="remember-me"> {{ __('keywords.remember-me') }}
                         </label>
                     </div>
 
                     {{-- Login button --}}
-                    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('Login') }}</button>
+                    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ __('keywords.login') }}</button>
                     <p class="text-muted mb-3 mt-5">© 2020</p>
+                    @include('admin.dashboard.partials.lang-switcher')
                 </form>
             </div>
         </div>

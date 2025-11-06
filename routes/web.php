@@ -1,42 +1,30 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\admin\LanguageSwitcher;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
-
-
-//  public routes
-Route::name('front.')->group(function () {
+// Public routes - Without locale prefix
+Route::name('front.')->group(function (): void {
     Route::view('/', 'front.index')->name('home');
     Route::view('/about', 'front.about')->name('about');
     Route::view('/service', 'front.service')->name('service');
     Route::view('/contact', 'front.contact')->name('contact');
-
-
 });
 
-
-//  admin routes
-Route::name('admin.')
-    ->prefix('admin')
+// Admin routes - With locale prefix
+Route::prefix(LaravelLocalization::setLocale() . '/admin')
+    ->middleware(['localeSessionRedirect', 'localizationRedirect', 'localeViewPath'])
+    ->name('admin.')
     ->group(function () {
 
+        require __DIR__ . "/auth.php";
+
+        // Authenticated routes (dashboard, logout)
         Route::middleware('auth')->group(function () {
             Route::view('/', 'admin.dashboard.index')->name('dashboard');
         });
-
-        require __DIR__ . '/auth.php';
-
     });
 
 

@@ -9,6 +9,10 @@
     </form>
     <ul class="nav">
         <li class="nav-item">
+            {{-- language switcher --}}
+            @include('admin.dashboard.partials.lang-switcher')
+        </li>
+        <li class="nav-item">
             <a class="nav-link text-muted my-2" href="#" id="modeSwitcher" data-mode="light">
                 <i class="fe fe-sun fe-16"></i>
             </a>
@@ -36,9 +40,11 @@
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Settings</a>
                 <a class="dropdown-item" href="#">Activities</a>
+                <hr>
                 <form action="{{ route('admin.logout') }}" method="post">
                     @csrf
-                    <button type="submit" class="dropdown-item text-danger" href="#">Logout</button>
+                    <button type="submit" class="dropdown-item text-danger"
+                        href="#">{{ __('keywords.logout') }}</button>
                 </form>
             </div>
         </li>
