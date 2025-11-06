@@ -1,10 +1,15 @@
+{{-- @php
+    use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
+@endphp --}}
+
+
 <!doctype html>
 <html lang="en">
 
     <!-- navbar start -->
     @include('admin.dashboard.partials.header')
 
-    <body class="vertical light">
+    <body class="vertical light @if (LaravelLocalization::getCurrentLocale() == 'ar') rtl @endif">
         <div class="wrapper">
 
             <!-- navbar start -->
