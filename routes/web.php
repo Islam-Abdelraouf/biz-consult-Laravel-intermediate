@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\LanguageSwitcher;
+use App\Http\Controllers\ServiceController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -21,9 +22,15 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')
 
         require __DIR__ . "/auth.php";
 
-        // Authenticated routes (dashboard, logout)
+        // Authenticated routes
         Route::middleware('auth')->group(function () {
+            //----------------------------------------->>>> HOME PAGE
             Route::view('/', 'admin.dashboard.index')->name('dashboard');
+
+            //----------------------------------------->>>> SERVICES
+            Route::controller(ServiceController::class)->group(function () {
+                Route::resource('services', ServiceController::class);
+            });
         });
     });
 
