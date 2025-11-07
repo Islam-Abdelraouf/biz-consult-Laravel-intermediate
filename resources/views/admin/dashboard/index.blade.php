@@ -1,4 +1,4 @@
-@extends('admin.dashboard.master')
+@extends('admin.master')
 
 {{-- update title --}}
 @section('title',__('keywords.index'))
