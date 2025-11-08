@@ -8,20 +8,16 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                {{-- head container --}}
-                <div class="card mb-3 shadow">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center rounded bg-white">
-                            {{-- page title --}}
-                            <h2 class="h5">{{ __('keywords.edit_service') }}</h2>
-                            {{-- back button --}}
-                            <div>
-                                <a class="btn btn btn-outline-warning"
-                                    href="{{ route('admin.services.index') }}">{{ __('keywords.back') }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                {{-- page navigation head --}}
+                <x-page-navigation-header 
+                    headerTitle="{{ __('keywords.edit_service') }}"
+
+                    btnCaption="{{ __('keywords.back') }}" 
+                    btnColor="outline-danger"
+                    btnHref="{{ route('admin.services.index') }}">
+                </x-page-navigation-header>
+
 
                 <div class="card shadow">
                     <div class="card-body">
@@ -35,29 +31,29 @@
                             <div class="row">
                                 {{-- title --}}
                                 <div class="form-group col-md-6 mb-3">
-                                    <label for="title">{{ __('keywords.title') }}</label>
+                                    <x-form-label field="title"></x-form-label>
                                     <input type="text" id="title" name="title"
                                         value="{{ old('title') ?? $service->title }}" class="form-control" autofocus>
-                                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                                    <x-validation-error field="title"></x-validation-error>
                                 </div>
                                 {{-- icon --}}
                                 <div class="form-group col-md-6 mb-3">
-                                    <label for="icon">{{ __('keywords.icon') }}</label>
+                                    <x-form-label field="icon"></x-form-label>
                                     <input type="text" id="icon" name="icon"
                                         value="{{ old('icon') ?? $service->icon }}" class="form-control">
-                                    <x-input-error :messages="$errors->get('icon')" class="mt-2" />
+                                    <x-validation-error field="icon"></x-validation-error>
                                 </div>
                                 {{-- description --}}
                                 <div class="form-group col-md-12 mb-3">
-                                    <label for="description">{{ __('keywords.description') }}</label>
+                                    <x-form-label field="description"></x-form-label>
                                     <textarea id="description" name="description" class="form-control">{{ old('description') ?? $service->description }}</textarea>
-                                    <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                                    <x-validation-error field="description"></x-validation-error>
                                 </div>
                             </div>
+
                             {{-- update button --}}
-                            <div>
-                                <button class="btn btn-primary self" type="submit">{{ __('keywords.update') }}</button>
-                            </div>
+                            <x-action-button type="submit" caption="{{ __('keywords.update') }}" ></x-action-button>
+
                         </form>
                     </div>
                 </div>

@@ -33,5 +33,9 @@ return [
     'save' => 'حفظ',
     'update' => 'تحديث',
     'addProduct' => 'اضافة منتج جديد',
+    'testmonials' => 'آراء العملاء',
+    'public_website' => 'الموقع الرئيسي',
+    'hero_section' => 'القسم الرئيسي البارز',
+    'our_clients' => 'شركاؤنا في النجاح',
 
 ];

@@ -8,19 +8,16 @@
     <div class="container-fluid">
         <div class="row justify-content-center">
             <div class="col-12">
-                {{-- head container --}}
-                <div class="card mb-3 shadow">
-                    <div class="card-body">
-                        <div class="d-flex justify-content-between align-items-center rounded bg-white">
-                            {{-- page title --}}
-                            <h2 class="h5">{{ __('keywords.add_new_service') }}</h2>
-                            {{-- back button --}}
-                            <div>
-                                <a class="btn btn-outline-warning" href="{{ route('admin.services.index') }}">{{ __('keywords.back') }}</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+
+                {{-- page navigation head --}}
+                <x-page-navigation-header 
+                    headerTitle="{{ __('keywords.add_new_service') }}"
+                    
+                    btnCaption="{{ __('keywords.back') }}" 
+                    btnColor="outline-danger" 
+                    btnHref="{{ route('admin.services.index') }}">
+                </x-page-navigation-header>
+
 
                 <!-- simple table -->
                 <div class="card shadow">

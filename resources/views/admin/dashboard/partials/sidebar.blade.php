@@ -21,26 +21,56 @@
             </a>
         </div>
 
-        <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item w-100">
-                <a class="nav-link" href="{{ route('admin.dashboard') }}">
-                    <i class="fe fe-home fe-16"></i>
-                    <span class="item-text ml-3">{{ __('keywords.dashboard') }}</span>
-                </a>
-            </li>
 
-        </ul>
+        {{-- side menu items --}}
+
+        {{-- dashboard --}}
+        <x-side-menu-item
+            href="{{ route('admin.dashboard') }}"
+            icon="fe-home"
+            name="{{ __('keywords.dashboard') }}">
+        </x-side-menu-item>
+
         <p class="text-muted nav-heading mb-1 mt-4">
             <span>Components</span>
         </p>
-        <ul class="navbar-nav flex-fill w-100 mb-2">
-            <li class="nav-item w-100">
-                <a class="nav-link" href="{{ route('admin.services.index') }}">
-                    <i class="fe fe-codesandbox fe-16"></i>
-                    <span class="item-text ml-3">{{ __('keywords.services') }}</span>
-                </a>
-            </li>
-        </ul>
+
+        {{-- Services --}}
+        <x-side-menu-item
+            href="{{ route('admin.services.index') }}"
+            icon="fe-codesandbox"
+            name="{{ __('keywords.services') }}">
+        </x-side-menu-item>
+
+        {{-- Testmonials --}}
+        <x-side-menu-item
+            href="{{ route('admin.services.index') }}"
+            icon="fe-award"
+            name="{{ __('keywords.testmonials') }}">
+        </x-side-menu-item>
+
+        {{-- public website --}}
+        <x-side-menu-item
+            href="{{ route('front.home') }}"
+            icon="fe-chrome"
+            name="{{ __('keywords.public_website') }}">
+        </x-side-menu-item>
+
+        {{-- hero section --}}
+        <x-side-menu-item
+            href="{{ route('admin.services.index') }}"
+            icon="fe-settings"
+            name="{{ __('keywords.hero_section') }}">
+        </x-side-menu-item>
+
+        {{-- our clients --}}
+        <x-side-menu-item
+            href="{{ route('admin.services.index') }}"
+            icon="fe-smile"
+            name="{{ __('keywords.our_clients') }}">
+        </x-side-menu-item>
+
+
 
     </nav>
 </aside>

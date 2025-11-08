@@ -32,5 +32,9 @@ return [
     'save' => 'Save',
     'update' => 'Update',
     'addProduct' => 'Add New Product',
+    'testmonials' => 'Testmonials',
+    'public_website' => 'Public Website',
+    'hero_section' => 'Hero Section',
+    'our_clients' => 'Our Clients',
 
 ];
