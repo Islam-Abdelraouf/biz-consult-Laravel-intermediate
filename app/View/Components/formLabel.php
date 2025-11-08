@@ -1,17 +1,17 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\View\Components;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
 
-class {{ class }} extends Component
+class formLabel extends Component
 {
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $varName)
+    public function __construct(public string $field)
     {
         //
     }
@@ -21,6 +21,6 @@ class {{ class }} extends Component
      */
     public function render(): View|Closure|string
     {
-        return {{ view }};
+        return view('components.form-label');
     }
 }
