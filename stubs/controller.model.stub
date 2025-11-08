@@ -13,8 +13,8 @@ class {{ class }} extends Controller
      */
     public function index()
     {
-        ${{ modelVariable }}s = Service::paginate(config('pagination.counter'));
-        return view('admin.{{ modelVariable }}.index', get_defined_vars());
+        ${{ modelVariable }}s = {{ model }}::paginate(config('pagination.counter'));
+        return view('admin.{{ modelVariable }}s.index', get_defined_vars());
     }
 
     /**

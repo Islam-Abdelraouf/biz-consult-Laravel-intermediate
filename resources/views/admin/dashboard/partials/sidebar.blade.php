@@ -44,9 +44,9 @@
 
         {{-- Testmonials --}}
         <x-side-menu-item
-            href="{{ route('admin.services.index') }}"
-            icon="fe-award"
-            name="{{ __('keywords.testmonials') }}">
+            href="{{ route('admin.features.index') }}"
+            icon="fe-bookmark"
+            name="{{ __('keywords.features') }}">
         </x-side-menu-item>
 
         {{-- public website --}}

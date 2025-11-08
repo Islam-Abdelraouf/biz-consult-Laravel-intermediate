@@ -2,39 +2,54 @@
 
 return [
 
+
+    //  common words
     'index' => 'Index',
     'dashboard' => 'Dashboard',
-    'logout' => 'Logout',
     'welcome' => 'Welcome!',
-    'sign-in' => 'Sign in',
-    'email-address' => 'Email address',
-    'password' => 'Password',
-    'remember-me' => 'Remember me',
-    'login' => 'Login',
-    'services' => 'Services',
     'back' => 'Back',
-    'add_new_service' => 'Create New Service',
-    'show_service' => 'Show Service',
-    'edit_service' => 'Edit Service',
-    'products' => 'Products',
-    'title' => 'Title',
-    'icon' => 'Icon',
-    'description' => 'Description',
     'actions' => 'Actions',
-    'add_new' => 'Add New',
-    'created_successfully' => 'Record has been created successfully !',
-    'updated_successfully' => 'Record has been updated successfully !',
-    'deleted_successfully' => 'Record has been deleted successfully !',
     'no-record' => 'No records found !',
+    'public_website' => 'Public Website',
+    'add_new' => 'Add New',
+    'save' => 'Save',
     'show' => 'Show',
     'edit' => 'Edit',
     'delete' => 'Delete',
-    'save' => 'Save',
     'update' => 'Update',
-    'addProduct' => 'Add New Product',
-    'testmonials' => 'Testmonials',
-    'public_website' => 'Public Website',
-    'hero_section' => 'Hero Section',
-    'our_clients' => 'Our Clients',
+    'created_successfully' => 'Record has been created successfully !',
+    'updated_successfully' => 'Record has been updated successfully !',
+    'deleted_successfully' => 'Record has been deleted successfully !',
 
+    //  clients words
+    'our_clients' => 'Our Clients',
+    //  hero section words
+    'hero_section' => 'Hero Section',
+    //  testmonials words
+    'testmonials' => 'Testmonials',
+    //  products words
+    'products' => 'Products',
+    'addProduct' => 'Add New Product',
+    //  auth words
+    'sign-in' => 'Sign in',
+    'login' => 'Login',
+    'logout' => 'Logout',
+    //  services words
+    'services' => 'Services',
+    'add_new_service' => 'Create New Service',
+    'show_service' => 'Show Service',
+    'edit_service' => 'Edit Service',
+    'title' => 'Title',
+    'icon' => 'Icon',
+    'description' => 'Description',
+    'email-address' => 'Email address',
+    'password' => 'Password',
+    'remember-me' => 'Remember me',
+
+
+    //  features words
+    'features' => 'Features',
+    'add_new_feature' => 'Create New Feature',
+    'show_feature' => 'Show Feature',
+    'edit_feature' => 'Edit Feature',
 ];
