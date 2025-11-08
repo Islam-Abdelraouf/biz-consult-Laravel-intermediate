@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\admin\LanguageSwitcher;
 use App\Http\Controllers\ServiceController;
+use App\Http\Controllers\FeatureController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -30,6 +31,11 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')
             //----------------------------------------->>>> SERVICES
             Route::controller(ServiceController::class)->group(function () {
                 Route::resource('services', ServiceController::class);
+            });
+
+            //----------------------------------------->>>> FEATURES
+            Route::controller(FeatureController::class)->group(function () {
+                Route::resource('features', FeatureController::class);
             });
         });
     });
