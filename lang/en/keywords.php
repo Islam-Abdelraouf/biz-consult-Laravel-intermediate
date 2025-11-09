@@ -36,6 +36,10 @@ return [
     'logout' => 'Logout',
     //  services words
     'services' => 'Services',
+
+    //  subscribers words
+    'subscribers' => 'Subscribers',
+
     'add_new_service' => 'Create New Service',
     'show_service' => 'Show Service',
     'edit_service' => 'Edit Service',

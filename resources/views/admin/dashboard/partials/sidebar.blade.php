@@ -56,6 +56,13 @@
             name="{{ __('keywords.messages') }}">
         </x-side-menu-item>
 
+        {{-- Subscribers --}}
+        <x-side-menu-item
+            href="{{ route('admin.subscribers.index') }}"
+            icon="fe-users"
+            name="{{ __('keywords.subscribers') }}">
+        </x-side-menu-item>
+
         {{-- public website --}}
         <x-side-menu-item
             href="{{ route('front.home') }}"
