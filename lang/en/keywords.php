@@ -47,9 +47,19 @@ return [
     'remember-me' => 'Remember me',
 
 
+    //  services words
+    'messages' => 'Messages',
+    'add_new_message' => 'Create New Message',
+    'show_message' => 'Show Message',
+    'edit_message' => 'Edit Message',
+    'name' => 'Name',
+    'email' => 'Email',
+    'subject' => 'Subject',
+    'message' => 'Message',
+
+
     //  features words
     'features' => 'Features',
     'add_new_feature' => 'Create New Feature',
     'show_feature' => 'Show Feature',
-    'edit_feature' => 'Edit Feature',
 ];

@@ -42,11 +42,18 @@
             name="{{ __('keywords.services') }}">
         </x-side-menu-item>
 
-        {{-- Testmonials --}}
+        {{-- Features --}}
         <x-side-menu-item
             href="{{ route('admin.features.index') }}"
             icon="fe-bookmark"
             name="{{ __('keywords.features') }}">
+        </x-side-menu-item>
+
+        {{-- Messages --}}
+        <x-side-menu-item
+            href="{{ route('admin.messages.index') }}"
+            icon="fe-mail"
+            name="{{ __('keywords.messages') }}">
         </x-side-menu-item>
 
         {{-- public website --}}
