@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\LanguageSwitcher;
+use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\FeatureController;
 use Illuminate\Support\Facades\Route;
@@ -37,18 +38,11 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')
             Route::controller(FeatureController::class)->group(function () {
                 Route::resource('features', FeatureController::class);
             });
+
+            //----------------------------------------->>>> MESSAGES
+            Route::controller(MessageController::class)->group(function () {
+                Route::resource('messages', MessageController::class)->only(['index','show','destroy']);
+            });
         });
     });
-
-
-// Route::get('/dashboard', function () {
-//     return view('dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
-
-// Route::middleware('auth')->group(function () {
-//     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
-//     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
-//     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
-// });
-
 
