@@ -27,21 +27,21 @@
                             {{-- title --}}
                             <div class="row">
                                 <div class="form-group col-md-6 mb-3">
-                                    <label for="title">{{ __('keywords.title') }}</label>
+                                    <x-form-label field="title"></x-form-label>
                                     <input type="text" id="title" name="title" class="form-control" autofocus>
-                                    <x-input-error :messages="$errors->get('title')" class="mt-2" />
+                                    <x-validation-error field="title"></x-validation-error>
                                 </div>
                                 {{-- icon --}}
                                 <div class="form-group col-md-6 mb-3">
-                                    <label for="icon">{{ __('keywords.icon') }}</label>
+                                    <x-form-label field="icon"></x-form-label>
                                     <input type="text" id="icon" name="icon" class="form-control">
-                                    <x-input-error :messages="$errors->get('icon')" class="mt-2" />
+                                    <x-validation-error field="icon"></x-validation-error>
                                 </div>
                                 {{-- description --}}
                                 <div class="form-group col-md-12 mb-3">
-                                    <label for="description">{{ __('keywords.description') }}</label>
+                                    <x-form-label field="description"></x-form-label>
                                     <textarea id="description" name="description" class="form-control"></textarea>
-                                    <x-input-error :messages="$errors->get('description')" class="mt-2" />
+                                    <x-validation-error field="description"></x-validation-error>
                                 </div>
                             </div>
                             {{-- button --}}
