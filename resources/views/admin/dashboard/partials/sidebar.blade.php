@@ -70,6 +70,13 @@
             name="{{ __('keywords.testimonials') }}">
         </x-side-menu-item>
 
+        {{-- Members --}}
+        <x-side-menu-item
+            href="{{ route('admin.members.index') }}"
+            icon="fe-smile"
+            name="{{ __('keywords.members') }}">
+        </x-side-menu-item>
+
         {{-- public website --}}
         <x-side-menu-item
             href="{{ route('front.home') }}"

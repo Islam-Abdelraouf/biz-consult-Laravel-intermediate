@@ -40,7 +40,7 @@
                             <div class="form-group col-md-4 mb-2 pb-3">
                                 <x-form-label field="image"></x-form-label>
                                 <div>
-                                    <img img class="rounded p-0" name="image" width="150px" height="150px"
+                                    <img img class="rounded p-0" name="image" style="width:120px;height:120px;object-fit:cover;"
                                         src="{{ asset('assets-front/img/' . $testimonial->image) }}">
                                 </div>
                             </div>
@@ -51,17 +51,16 @@
                                     <textarea class="form-control bg-white" rows="6" disabled>{{ $testimonial->description }}</textarea>
                                 </div>
                             </div>
-                            {{-- button --}}
-                            <div class="form-group col-md-12 mb-3">
-                                <x-action-button type="action" color="{{ 'primary' }}"
-                                    href="{{ route('admin.testimonials.edit', ['testimonial' => $testimonial]) }}"
-                                    caption="{{ __('keywords.edit') }}">
-                                </x-action-button>
-                            </div>
 
                         </div>
                     </div>
                 </div>
+                        {{-- edit button --}}
+                        <div class="mt-3">
+                            <a class="btn btn-primary" href="{{ route('admin.testimonials.edit',['testimonial'=>$testimonial]) }}">
+                                <i class="fe fe-edit mr-2"></i>{{ __('keywords.edit') }}
+                            </a>
+                        </div>
             </div> <!-- .row -->
         </div> <!-- .container-fluid -->
     @endsection

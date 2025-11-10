@@ -18,7 +18,8 @@
 
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('admin.testimonials.update', ['testimonial' => $testimonial]) }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('admin.testimonials.update', ['testimonial' => $testimonial]) }}"
+                            method="post" enctype="multipart/form-data">
 
                             {{-- HTTP PUT METHOD --}}
                             @method('PUT')
@@ -40,17 +41,29 @@
                                         value="{{ old('position') ?? $testimonial->position }}" class="form-control">
                                     <x-validation-error field="position"></x-validation-error>
                                 </div>
-                                {{-- image --}}
-                                <div class="form-group col-md-12 mb-3">
-                                    <x-form-label field="image"></x-form-label>
-                                    <input type="file" id="imageInput" name="image" class="form-control"
-                                        accept="image/*">
-                                    <img class="rounded mt-3" name="image" id="preview" width="120px"
-                                        src="{{ old('image')
-                                        ? asset('assets-front/img/' . old('image'))
-                                        : asset('assets-front/img/' . $testimonial->image) }}" alt="">
-                                    <x-validation-error field="image"></x-validation-error>
+
+
+
+                                {{-- Image / Preview --}}
+                                <div class="form-group col-lg-6">
+                                    {{-- Image Live preview --}}
+                                    <div class="border-1 mb-1 mt-3 rounded p-1">
+                                        <x-form-label field="image" />
+                                        <img class="d-lg-block rounded border-0" name="image" id="preview"
+                                            style="width:120px;height:120px;object-fit:cover;"
+                                            src="{{ old('image') ? asset('assets-front/img/' . old('image')) : asset('assets-front/img/' . $testimonial->image) }}"
+                                            alt="">
+                                    </div>
+                                    {{-- Image Input --}}
+                                    <div class="mb-3">
+                                        <input type="file" id="imageInput" name="image" class="form-control"
+                                            accept="image/*">
+                                        <x-validation-error field="image" />
+                                    </div>
                                 </div>
+
+
+
                                 {{-- description --}}
                                 <div class="form-group col-md-12 mb-3">
                                     <x-form-label field="description"></x-form-label>
@@ -60,7 +73,13 @@
                             </div>
 
                             {{-- update button --}}
-                            <x-action-button type="submit" caption="{{ __('keywords.update') }}"></x-action-button>
+
+                            <div class="mt-3">
+                                <button class="btn btn-primary me-2" type="submit">
+                                    <i class="fe fe-save mr-2"></i>{{ __('keywords.save') }}
+                                    {{-- <i class="fe fe-edit mr-2"></i>{{ __('keywords.save') }} --}}
+                                </button>
+                            </div>
 
                         </form>
                     </div>

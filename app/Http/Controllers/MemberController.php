@@ -2,22 +2,22 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Testimonial;
-use App\Http\Requests\StoreTestimonialRequest;
-use App\Http\Requests\UpdateTestimonialRequest;
+use App\Models\Member;
+use App\Http\Requests\StoreMemberRequest;
+use App\Http\Requests\UpdateMemberRequest;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
-class TestimonialController extends Controller
+class MemberController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $testimonials = Testimonial::paginate(config('pagination.counter'));
-        return view('admin.testimonials.index', get_defined_vars());
+        $members = Member::paginate(config('pagination.counter'));
+        return view('admin.members.index', get_defined_vars());
     }
 
     /**
@@ -25,16 +25,19 @@ class TestimonialController extends Controller
      */
     public function create()
     {
-        return view('admin.testimonials.create');
+        return view('admin.members.create');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreTestimonialRequest $request)
+    public function store(StoreMemberRequest $request)
     {
+
         // image prefix
-        $imgPrefix='testimonial-';
+        $imgPrefix='members-';
+        
+        $data = $request->validated();
 
         // 1. Capture and store the validated data
         $data = $request->validated();
@@ -56,41 +59,41 @@ class TestimonialController extends Controller
             $data['image'] = $defaultImage;
         }
 
-        // 4. create new testimonial record and return to index page
-        Testimonial::create($data);
-        return to_route('admin.testimonials.index')->with('success', __('keywords.created_successfully'));
+
+        Member::create($data);
+        return to_route('admin.members.index')->with('success', __('keywords.created_successfully'));
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Testimonial $testimonial)
+    public function show(Member $member)
     {
-        return view('admin.testimonials.show', get_defined_vars());
+        return view('admin.members.show', get_defined_vars());
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Testimonial $testimonial)
+    public function edit(Member $member)
     {
-        return view('admin.testimonials.edit', get_defined_vars());
+        return view('admin.members.edit', get_defined_vars());
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateTestimonialRequest $request, Testimonial $testimonial)
+    public function update(UpdateMemberRequest $request, Member $member)
     {
         // image prefix
-        $imgPrefix='testimonial-';
-        
+        $imgPrefix='member-';
+        // dd($request->all());
         // 1. Capture and store the validated data
         $data = $request->validated();
         // 2. Assign a default image filename
         $defaultImage = "default.jpg";
         // 3. Assign the recorded image filename
-        $storedImage = $testimonial->image;
+        $storedImage = $member->image;
 
         // 4. Execute this block only when an image has been submitted
         if (request()->hasFile('image') && request()->file('image')->isValid()) {
@@ -104,23 +107,23 @@ class TestimonialController extends Controller
             // or keep the image stored in database, or use the default image if no image was still in the database
             $data['image'] = $storedImage ?: $defaultImage;
         }
-        // 5. update the testimonial record and return to index page
-        $testimonial->update($data);
-        return to_route('admin.testimonials.index')->with('success', __('keywords.updated_successfully'));
+        // 5. update the member record and return to index page
+        $member->update($data);
+        return to_route('admin.members.index')->with('success', __('keywords.updated_successfully'));
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Testimonial $testimonial)
+    public function destroy(Member $member)
     {
         // Define the expected directory path for storing images
         $imgDir = public_path('assets-front/img');
         // Delete the previously stored image file from the storage directory
-        File::delete($imgDir . DIRECTORY_SEPARATOR . $testimonial->image);
+        File::delete($imgDir . DIRECTORY_SEPARATOR . $member->image);
 
         // Delete the stored testimonial record from the database
-        $testimonial->delete();
-        return to_route('admin.testimonials.index')->with('success', __('keywords.deleted_successfully'));
+        $member->delete();
+        return to_route('admin.members.index')->with('success', __('keywords.deleted_successfully'));
     }
 }
