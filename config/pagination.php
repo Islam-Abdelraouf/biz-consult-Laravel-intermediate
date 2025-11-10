@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'counter' => 2
+    'counter' => 5
 ];

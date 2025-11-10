@@ -1,7 +1,7 @@
 @error($field)
-    <div class="text-danger">
-        @foreach ( $messages as $message)
+    <div class="text-danger font-weight-light mt-1">
+        {{-- @foreach ( $messages as $message) --}}
             <p>{{ $message }}</p>
-        @endforeach
+        {{-- @endforeach --}}
     </div>
 @enderror

@@ -63,6 +63,13 @@
             name="{{ __('keywords.subscribers') }}">
         </x-side-menu-item>
 
+        {{-- Testimonials --}}
+        <x-side-menu-item
+            href="{{ route('admin.testimonials.index') }}"
+            icon="fe-thumbs-up"
+            name="{{ __('keywords.testimonials') }}">
+        </x-side-menu-item>
+
         {{-- public website --}}
         <x-side-menu-item
             href="{{ route('front.home') }}"

@@ -25,8 +25,16 @@ return [
     'our_clients' => 'Our Clients',
     //  hero section words
     'hero_section' => 'Hero Section',
-    //  testmonials words
-    'testmonials' => 'Testmonials',
+    //  testimonials words
+    'testimonials' => 'Testimonials',
+    'add_new_testimonial' => 'Create New Testimonial',
+    'show_testimonial' => 'Show Testimonial',
+    'edit_testimonial' => 'Edit Testimonial',
+    'position' => 'Position',
+    'image' => 'Image',
+    'upload_image' => 'Upload image',
+    'choose_file' => 'Choose file',
+
     //  products words
     'products' => 'Products',
     'addProduct' => 'Add New Product',
