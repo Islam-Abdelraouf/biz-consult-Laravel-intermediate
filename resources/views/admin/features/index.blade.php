@@ -29,8 +29,8 @@
                         <x-success-alert></x-success-alert>
 
                         <!-- table card -->
-                        <table class="table-hover table">
-                            <thead class="thead-dark">
+                        <table class="table">
+                            <thead class="thead-light">
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>{{ __('keywords.title') }}</th>
