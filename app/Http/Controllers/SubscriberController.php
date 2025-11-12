@@ -16,7 +16,13 @@ class SubscriberController extends Controller
         $subscribers = Subscriber::paginate(config('pagination.counter'));
         return view('admin.subscribers.index', get_defined_vars());
     }
-
+    /**
+     * Display the specified resource.
+     */
+    public function show(Subscriber $subscriber)
+    {
+        return view('admin.subscribers.show', get_defined_vars());
+    }
     /**
      * Remove the specified resource from storage.
      */

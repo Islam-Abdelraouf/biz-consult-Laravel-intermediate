@@ -27,7 +27,7 @@
         {{-- dashboard --}}
         <x-side-menu-item
             href="{{ route('admin.dashboard') }}"
-            icon="fe-home"
+            icon="{{ config('icons.dashboardIcon') }}"
             name="{{ __('keywords.dashboard') }}">
         </x-side-menu-item>
 
@@ -38,65 +38,65 @@
         {{-- Services --}}
         <x-side-menu-item
             href="{{ route('admin.services.index') }}"
-            icon="fe-codesandbox"
+            icon="{{ config('icons.servicesIcon') }}"
             name="{{ __('keywords.services') }}">
         </x-side-menu-item>
 
         {{-- Features --}}
         <x-side-menu-item
             href="{{ route('admin.features.index') }}"
-            icon="fe-bookmark"
+            icon="{{ config('icons.featuresIcon') }}"
             name="{{ __('keywords.features') }}">
         </x-side-menu-item>
 
         {{-- Messages --}}
         <x-side-menu-item
             href="{{ route('admin.messages.index') }}"
-            icon="fe-mail"
+            icon="{{ config('icons.messagesIcon') }}"
             name="{{ __('keywords.messages') }}">
         </x-side-menu-item>
 
         {{-- Subscribers --}}
         <x-side-menu-item
             href="{{ route('admin.subscribers.index') }}"
-            icon="fe-users"
+            icon="{{ config('icons.subscribersIcon') }}"
             name="{{ __('keywords.subscribers') }}">
         </x-side-menu-item>
 
         {{-- Testimonials --}}
         <x-side-menu-item
             href="{{ route('admin.testimonials.index') }}"
-            icon="fe-thumbs-up"
+            icon="{{ config('icons.testmonialsIcon') }}"
             name="{{ __('keywords.testimonials') }}">
         </x-side-menu-item>
 
         {{-- Members --}}
         <x-side-menu-item
             href="{{ route('admin.members.index') }}"
-            icon="fe-smile"
+            icon="{{ config('icons.membersIcon') }}"
             name="{{ __('keywords.members') }}">
         </x-side-menu-item>
 
         {{-- public website --}}
         <x-side-menu-item
             href="{{ route('front.home') }}"
-            icon="fe-chrome"
+            icon="{{ config('icons.publicSiteIcon') }}"
             name="{{ __('keywords.public_website') }}">
         </x-side-menu-item>
 
         {{-- hero section --}}
-        <x-side-menu-item
-            href="{{ route('admin.services.index') }}"
-            icon="fe-settings"
-            name="{{ __('keywords.hero_section') }}">
-        </x-side-menu-item>
+        {{-- <x-side-menu-item --}}
+            {{-- href="{{ route('admin.hero.index') }}" --}}
+            {{-- icon="{{ config('icons.heroSectionIcon') }}" --}}
+            {{-- name="{{ __('keywords.hero_section') }}"> --}}
+        {{-- </x-side-menu-item> --}}
 
         {{-- our clients --}}
-        <x-side-menu-item
-            href="{{ route('admin.services.index') }}"
-            icon="fe-smile"
-            name="{{ __('keywords.our_clients') }}">
-        </x-side-menu-item>
+        {{-- <x-side-menu-item --}}
+            {{-- href="{{ route('admin.clients.index') }}" --}}
+            {{-- icon="{{ config('icons.clients') }}" --}}
+            {{-- name="{{ __('keywords.our_clients') }}"> --}}
+        {{-- </x-side-menu-item> --}}
 
 
 

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.testimonial_create'))
+@section('title', __('keywords.create_testimonial'))
 
 {{-- content --}}
 @section('content')
@@ -10,13 +10,13 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.add_new_testimonial') }}"
-                    btnCaption="{{ __('keywords.back') }}" btnColor="outline-danger"
-                    btnHref="{{ route('admin.testimonials.index') }}">
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-thumbs-up fe-32 mr-3'></i>{{ __('keywords.create_testimonial') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-
-                <!-- simple table -->
+                <!-- form card -->
                 <div class="card shadow">
                     <div class="card-body">
                         <form action="{{ route('admin.testimonials.store') }}" method="post" enctype="multipart/form-data"
@@ -38,7 +38,6 @@
                                     <x-validation-error field="position"></x-validation-error>
                                 </div>
 
-
                                 {{-- Image / Preview --}}
                                 <div class="col-lg-6 form-group">
                                     {{-- Image Live preview --}}
@@ -55,8 +54,6 @@
                                     </div>
                                 </div>
 
-
-
                                 {{-- description --}}
                                 <div class="form-group col-md-12 mt-3">
                                     <x-form-label field="description"></x-form-label>
@@ -67,12 +64,18 @@
                         </form>
                     </div>
                 </div>
-                <div class="mt-3">
-                    <button class="btn btn-primary me-2" type="submit" form="main-form">
-                        <i class="fe fe-save mr-2"></i>{{ __('keywords.save') }}
-                        {{-- <i class="fe fe-edit mr-2"></i>{{ __('keywords.save') }} --}}
-                    </button>
-                </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    @endsection
+
+                {{-- page navigation foot --}}
+                <x-page-navigation-footer>
+                    <x-slot:actions>
+                        {{-- save button --}}
+                        <x-button.save></x-button.save>
+                        {{-- back button --}}
+                        <x-button.back></x-button.back>
+                    </x-slot:actions>
+                </x-page-navigation-footer>
+
+            </div>
+        </div>
+    </div> <!-- .container-fluid -->
+@endsection

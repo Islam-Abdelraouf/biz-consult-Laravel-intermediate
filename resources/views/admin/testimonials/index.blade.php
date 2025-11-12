@@ -10,19 +10,24 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.testimonials') }}"
-                    btnCaption="{{ __('keywords.add_new_testimonial') }}" btnColor="primary"
-                    btnHref="{{ route('admin.testimonials.create') }}">
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-thumbs-up fe-32 mr-3'></i>{{ __('keywords.testimonials') }}">
+                    <x-slot:actions>
+                        {{-- create button --}}
+                        <x-button.create myHref="{{ route('admin.testimonials.create') }}"
+                            myCaption="{{ __('keywords.create_testimonial') }}">
+                        </x-button.create>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-                <!-- simple table -->
+                <!-- {{-- main card --}} -->
                 <div class="card shadow">
                     <div class="card-body">
 
-                        {{-- success testimonial alert --}}
-                        <x-success-alert />
+                        {{-- success message alert --}}
+                        <x-success-alert></x-success-alert>
 
-                        {{-- services table --}}
+                        {{-- table card --}}
                         <table class="table-hover table">
                             <thead class="thead-dark">
                                 <tr>
@@ -40,33 +45,32 @@
                                             <td>{{ $testimonials->firstItem() + $loop->index }}</td>
                                             <td>{{ $testimonial->name }}</td>
                                             <td>{{ $testimonial->position }}</td>
-                                            <td><img style="width:100px;height:100px;object-fit:cover;" src="{{ asset('assets-front/img/' . $testimonial->image) }}"
+                                            <td><img style="width:100px;height:100px;object-fit:cover;"
+                                                    src="{{ asset('assets-front/img/' . $testimonial->image) }}"
                                                     alt="{{ $testimonial->image }}"> </td>
                                             <td>
-
-                                                {{-- edit button --}}
-                                                <x-action-button type="edit"
-                                                    href="{{ route('admin.testimonials.edit', ['testimonial' => $testimonial]) }}">
-                                                </x-action-button>
-
-                                                {{-- show button --}}
-                                                <x-action-button type="show"
-                                                    href="{{ route('admin.testimonials.show', ['testimonial' => $testimonial]) }}">
-                                                </x-action-button>
-
-                                                {{-- delete button --}}
-                                                <x-action-button type="delete"
-                                                    href="{{ route('admin.testimonials.destroy', ['testimonial' => $testimonial]) }}"
-                                                    scriptId="{{ $testimonial->id }}">
-                                                </x-action-button>
-
+                                                <div class="d-inline">
+                                                    {{-- show button --}}
+                                                    <x-button.action type="show"
+                                                        href="{{ route('admin.testimonials.show', ['testimonial' => $testimonial]) }}">
+                                                    </x-button.action>
+                                                    {{-- edit button --}}
+                                                    <x-button.action type="edit"
+                                                        href="{{ route('admin.testimonials.edit', ['testimonial' => $testimonial]) }}">
+                                                    </x-button.action>
+                                                    {{-- delete button --}}
+                                                    <x-button.action type="delete"
+                                                        href="{{ route('admin.testimonials.destroy', ['testimonial' => $testimonial]) }}"
+                                                        scriptId="{{ $testimonial->id }}">
+                                                    </x-button.action>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
-                                    <x-empty-alert />
+                                    {{-- zero record alert --}}
+                                    <x-empty-alert></x-empty-alert>
                                 @endif
-
                             </tbody>
                         </table>
 
@@ -75,10 +79,7 @@
                         {{-- {{ $testimonials->render('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-
-
-
-
-    @endsection
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

@@ -10,23 +10,26 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.subscribers') }}" {{-- btnCaption="{{ __('keywords.add_new_subscriber') }}" btnColor="primary"
-                    btnHref="{{ route('admin.subscribers.create') }}" --}}>
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-users fe-32 mr-3'></i>{{ __('keywords.subscribers') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-                <!-- simple table -->
+                {{-- main card --}}
                 <div class="card shadow">
                     <div class="card-body">
 
-                        {{-- success subscriber alert --}}
-                        <x-success-alert />
+                        {{-- success message alert --}}
+                        <x-success-alert></x-success-alert>
 
-                        {{-- services table --}}
+                        {{-- table card --}}
                         <table class="table-hover table">
                             <thead class="thead-dark">
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>{{ __('keywords.email') }}</th>
+                                    <th>{{ __('keywords.subscribed_at') }}</th>
                                     <th width="20%">{{ __('keywords.actions') }}</th>
                                 </tr>
                             </thead>
@@ -36,29 +39,25 @@
                                         <tr>
                                             <td>{{ $subscribers->firstItem() + $loop->index }}</td>
                                             <td>{{ $subscriber->email }}</td>
+                                            <td>{{ $subscriber->created_at }}</td>
                                             <td>
-
-                                                {{-- edit button --}}
-                                                {{-- <x-action-button type="edit"
-                                                    href="{{ route('admin.subscribers.edit', ['subscriber' => $subscriber]) }}">
-                                                </x-action-button> --}}
-
-                                                {{-- show button --}}
-                                                {{-- <x-action-button type="show"
-                                                    href="{{ route('admin.subscribers.show', ['subscriber' => $subscriber]) }}">
-                                                </x-action-button> --}}
-
-                                                {{-- delete button --}}
-                                                <x-action-button type="delete"
-                                                    href="{{ route('admin.subscribers.destroy', ['subscriber' => $subscriber]) }}"
-                                                    scriptId="{{ $subscriber->id }}">
-                                                </x-action-button>
-
+                                                <div class="d-inline">
+                                                    {{-- show button --}}
+                                                    <x-button.action type="show"
+                                                        href="{{ route('admin.subscribers.show', ['subscriber' => $subscriber]) }}">
+                                                    </x-button.action>
+                                                    {{-- delete button --}}
+                                                    <x-button.action type="delete"
+                                                        href="{{ route('admin.subscribers.destroy', ['subscriber' => $subscriber]) }}"
+                                                        scriptId="{{ $subscriber->id }}">
+                                                    </x-button.action>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
-                                    <x-empty-alert />
+                                    {{-- zero record alert --}}
+                                    <x-empty-alert></x-empty-alert>
                                 @endif
 
                             </tbody>
@@ -69,10 +68,7 @@
                         {{-- {{ $subscribers->render('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-
-
-
-
-    @endsection
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

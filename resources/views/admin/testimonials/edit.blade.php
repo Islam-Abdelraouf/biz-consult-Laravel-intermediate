@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.testimonial_create'))
+@section('title', __('keywords.edit_testimonial'))
 
 {{-- content --}}
 @section('content')
@@ -10,16 +10,17 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.edit_testimonial') }}"
-                    btnCaption="{{ __('keywords.back') }}" btnColor="outline-danger"
-                    btnHref="{{ route('admin.testimonials.index') }}">
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-thumbs-up fe-32 mr-3'></i>{{ __('keywords.edit_testimonial') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-
+                {{-- form card --}}
                 <div class="card shadow">
                     <div class="card-body">
                         <form action="{{ route('admin.testimonials.update', ['testimonial' => $testimonial]) }}"
-                            method="post" enctype="multipart/form-data">
+                            method="post" id="main-form" enctype="multipart/form-data">
 
                             {{-- HTTP PUT METHOD --}}
                             @method('PUT')
@@ -41,9 +42,6 @@
                                         value="{{ old('position') ?? $testimonial->position }}" class="form-control">
                                     <x-validation-error field="position"></x-validation-error>
                                 </div>
-
-
-
                                 {{-- Image / Preview --}}
                                 <div class="form-group col-lg-6">
                                     {{-- Image Live preview --}}
@@ -61,9 +59,6 @@
                                         <x-validation-error field="image" />
                                     </div>
                                 </div>
-
-
-
                                 {{-- description --}}
                                 <div class="form-group col-md-12 mb-3">
                                     <x-form-label field="description"></x-form-label>
@@ -71,19 +66,21 @@
                                     <x-validation-error field="description"></x-validation-error>
                                 </div>
                             </div>
-
-                            {{-- update button --}}
-
-                            <div class="mt-3">
-                                <button class="btn btn-primary me-2" type="submit">
-                                    <i class="fe fe-save mr-2"></i>{{ __('keywords.save') }}
-                                    {{-- <i class="fe fe-edit mr-2"></i>{{ __('keywords.save') }} --}}
-                                </button>
-                            </div>
-
                         </form>
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    @endsection
+                {{-- page navigation foot --}}
+                <x-page-navigation-footer>
+                    <x-slot:actions>
+                        {{-- update button --}}
+                        <x-button.update></x-button.update>
+                        {{-- back button --}}
+                        <x-button.back></x-button.back>
+                    </x-slot:actions>
+                </x-page-navigation-footer>
+
+            </div>
+
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

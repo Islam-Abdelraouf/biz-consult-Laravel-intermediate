@@ -10,22 +10,25 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header 
-                    headerTitle="{{ __('keywords.services') }}"
-                    
-                    btnCaption="{{ __('keywords.add_new_service') }}" 
-                    btnColor="primary" 
-                    btnHref="{{ route('admin.services.create') }}">
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-codesandbox fe-32 mr-3'></i>{{ __('keywords.services') }}">
+                    <x-slot:actions>
+                        {{-- create button --}}
+                        <x-button.create
+                            myHref="{{ route('admin.services.create') }}"
+                            myCaption="{{ __('keywords.create_service') }}">
+                        </x-button.create>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-                <!-- simple table -->
+                <!-- main card -->
                 <div class="card shadow">
                     <div class="card-body">
 
                         {{-- success message alert --}}
-                        <x-success-alert />
+                        <x-success-alert></x-success-alert>
 
-                        {{-- services table --}}
+                        {{-- table card --}}
                         <table class="table-hover table">
                             <thead class="thead-dark">
                                 <tr>
@@ -43,31 +46,30 @@
                                             <td>{{ $service->title }}</td>
                                             <td><i class="fe {{ $service->icon }} fe-2x"></i></td>
                                             <td>
+                                                <div class="d-inline">
+                                                    {{-- show button --}}
+                                                    <x-button.action type="show"
+                                                        href="{{ route('admin.services.show', ['service' => $service]) }}">
+                                                    </x-button.action>
+                                                    
+                                                    {{-- edit button --}}
+                                                    <x-button.action type="edit"
+                                                        href="{{ route('admin.services.edit', ['service' => $service]) }}">
+                                                    </x-button.action>
 
-                                                {{-- edit button --}}
-                                                <x-action-button  
-                                                    type="edit"
-                                                    href="{{ route('admin.services.edit', ['service' => $service]) }}">
-                                                </x-action-button>
 
-                                                {{-- show button --}}
-                                                <x-action-button  
-                                                    type="show"
-                                                    href="{{ route('admin.services.show', ['service' => $service]) }}">
-                                                </x-action-button>
-
-                                                {{-- delete button --}}
-                                                <x-action-button  
-                                                    type="delete"
-                                                    href="{{ route('admin.services.destroy', ['service' => $service]) }}"
-                                                    scriptId="{{ $service->id }}">
-                                                </x-action-button>
-
+                                                    {{-- delete button --}}
+                                                    <x-button.action type="delete"
+                                                        href="{{ route('admin.services.destroy', ['service' => $service]) }}"
+                                                        scriptId="{{ $service->id }}">
+                                                    </x-button.action>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
-                                    <x-empty-alert />
+                                    {{-- zero record alert --}}
+                                    <x-empty-alert></x-empty-alert>
                                 @endif
 
                             </tbody>
@@ -78,10 +80,7 @@
                         {{-- {{ $services->render('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-
-
-
-
-    @endsection
+            </div>
+        </div>
+    </div> <!-- .container-fluid -->
+@endsection

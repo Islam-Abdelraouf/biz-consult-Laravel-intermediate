@@ -49,7 +49,7 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')
 
             //----------------------------------------->>>> SUBSCRIBERS
             Route::controller(SubscriberController::class)->group(function () {
-                Route::resource('subscribers', SubscriberController::class)->only(['index', 'destroy']);
+                Route::resource('subscribers', SubscriberController::class)->only(['index', 'show', 'destroy']);
             });
 
             //----------------------------------------->>>> TestimonialS
