@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.edit_testimonial'))
+@section('title', __('keywords.edit_company'))
 
 {{-- content --}}
 @section('content')
@@ -11,7 +11,7 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="{{ __('keywords.edit_testimonial') }}">
+                    headerTitle="{{ __('keywords.edit_company') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>
@@ -19,8 +19,8 @@
                 {{-- form card --}}
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('admin.testimonials.update', ['testimonial' => $testimonial]) }}"
-                            method="post" id="main-form" enctype="multipart/form-data">
+                        <form action="{{ route('admin.companies.update', ['company' => $company]) }}" method="post"
+                            id="main-form" enctype="multipart/form-data">
 
                             {{-- HTTP PUT METHOD --}}
                             @method('PUT')
@@ -28,20 +28,6 @@
                             @csrf
 
                             <div class="row">
-                                {{-- name --}}
-                                <div class="form-group col-md-6 mb-3">
-                                    <x-form-label field="name"></x-form-label>
-                                    <input type="text" id="name" name="name"
-                                        value="{{ old('name') ?? $testimonial->name }}" class="form-control" autofocus>
-                                    <x-validation-error field="name"></x-validation-error>
-                                </div>
-                                {{-- position --}}
-                                <div class="form-group col-md-6 mb-3">
-                                    <x-form-label field="position"></x-form-label>
-                                    <input type="text" id="position" name="position"
-                                        value="{{ old('position') ?? $testimonial->position }}" class="form-control">
-                                    <x-validation-error field="position"></x-validation-error>
-                                </div>
                                 {{-- Image / Preview --}}
                                 <div class="form-group col-lg-6">
                                     {{-- Image Live preview --}}
@@ -49,7 +35,7 @@
                                         <x-form-label field="image" />
                                         <img class="d-lg-block rounded border-0" name="image" id="preview"
                                             style="width:120px;height:120px;object-fit:cover;"
-                                            src="{{ old('image') ? asset('assets-front/img/' . old('image')) : asset('assets-front/img/' . $testimonial->image) }}"
+                                            src="{{ old('image') ? asset('assets-front/img/' . old('image')) : asset('assets-front/img/' . $company->image) }}"
                                             alt="">
                                     </div>
                                     {{-- Image Input --}}
@@ -58,12 +44,6 @@
                                             accept="image/*">
                                         <x-validation-error field="image" />
                                     </div>
-                                </div>
-                                {{-- description --}}
-                                <div class="form-group col-md-12 mb-3">
-                                    <x-form-label field="description"></x-form-label>
-                                    <textarea id="description" name="description" class="form-control">{{ old('description') ?? $testimonial->description }}</textarea>
-                                    <x-validation-error field="description"></x-validation-error>
                                 </div>
                             </div>
                         </form>

@@ -10,7 +10,7 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="<i class='fe fe-mail fe-32 mr-3'></i>{{ __('keywords.messages') }}">
+                <x-page-navigation-header headerTitle="{{ __('keywords.messages') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>
@@ -50,7 +50,7 @@
                                                     {{-- delete button --}}
                                                     <x-button.action type="delete"
                                                         href="{{ route('admin.messages.destroy', ['message' => $message]) }}"
-                                                        scriptId="{{ $message->id }}">
+                                                        formId="{{ $message->id }}">
                                                     </x-button.action>
                                                 </div>
                                             </td>

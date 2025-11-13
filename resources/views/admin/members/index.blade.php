@@ -10,7 +10,7 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="<i class='fe fe-smile fe-32 mr-3'></i>{{ __('keywords.members') }}">
+                <x-page-navigation-header headerTitle="{{ __('keywords.members') }}">
                     <x-slot:actions>
                         {{-- create button --}}
                         <x-button.create myHref="{{ route('admin.members.create') }}"
@@ -62,7 +62,7 @@
                                                     {{-- delete button --}}
                                                     <x-button.action type="delete"
                                                         href="{{ route('admin.members.destroy', ['member' => $member]) }}"
-                                                        scriptId="{{ $member->id }}">
+                                                        formId="{{ $member->id }}">
                                                     </x-button.action>
                                                 </div>
                                             </td>

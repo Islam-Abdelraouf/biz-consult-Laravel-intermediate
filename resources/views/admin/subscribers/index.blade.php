@@ -11,7 +11,7 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="<i class='fe fe-users fe-32 mr-3'></i>{{ __('keywords.subscribers') }}">
+                    headerTitle="{{ __('keywords.subscribers') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>
@@ -49,7 +49,7 @@
                                                     {{-- delete button --}}
                                                     <x-button.action type="delete"
                                                         href="{{ route('admin.subscribers.destroy', ['subscriber' => $subscriber]) }}"
-                                                        scriptId="{{ $subscriber->id }}">
+                                                        formId="{{ $subscriber->id }}">
                                                     </x-button.action>
                                                 </div>
                                             </td>

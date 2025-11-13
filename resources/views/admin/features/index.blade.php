@@ -11,11 +11,10 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="<i class='fe fe-bookmark fe-32 mr-3'></i>{{ __('keywords.features') }}">
+                    headerTitle="{{ __('keywords.features') }}">
                     <x-slot:actions>
                         {{-- create button --}}
-                        <x-button.create
-                            myHref="{{ route('admin.features.create') }}"
+                        <x-button.create myHref="{{ route('admin.features.create') }}"
                             myCaption="{{ __('keywords.create_feature') }}">
                         </x-button.create>
                     </x-slot:actions>
@@ -58,7 +57,7 @@
                                                     {{-- delete button --}}
                                                     <x-button.action type="delete"
                                                         href="{{ route('admin.features.destroy', ['feature' => $feature]) }}"
-                                                        scriptId="{{ $feature->id }}">
+                                                        formId="{{ $feature->id }}">
                                                     </x-button.action>
                                                 </div>
                                             </td>

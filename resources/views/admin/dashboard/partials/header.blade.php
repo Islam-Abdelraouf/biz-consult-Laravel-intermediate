@@ -52,16 +52,26 @@
         }
 
         /* Apply animation to all buttons */
+
+        a[href].btn-create {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.4rem;
+            /* spacing between icon and text */
+            vertical-align: middle;
+        }
+
         button,
         .btn {
-            transition: transform 0.8s ease, box-shadow 0.5s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         /* Subtle lift on hover */
         button:hover,
         .btn:hover {
             transform: translateY(-1px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
         /* Smooth “click” feedback */

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.create_testimonial'))
+@section('title', __('keywords.create_company'))
 
 {{-- content --}}
 @section('content')
@@ -10,8 +10,7 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header
-                    headerTitle="{{ __('keywords.create_testimonial') }}">
+                <x-page-navigation-header headerTitle="{{ __('keywords.create_company') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>
@@ -19,25 +18,11 @@
                 <!-- form card -->
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('admin.testimonials.store') }}" method="post" enctype="multipart/form-data"
+                        <form action="{{ route('admin.companies.store') }}" method="post" enctype="multipart/form-data"
                             id="main-form">
                             @csrf
                             {{-- name --}}
                             <div class="row">
-                                <div class="form-group col-md-6 mb-3">
-                                    <x-form-label field="name"></x-form-label>
-                                    <input type="text" id="name" name="name" class="form-control"
-                                        placeholder="{{ __('keywords.name') }}" autofocus>
-                                    <x-validation-error field="name"></x-validation-error>
-                                </div>
-                                {{-- position --}}
-                                <div class="form-group col-md-6 mb-3">
-                                    <x-form-label field="position"></x-form-label>
-                                    <input type="text" id="position" name="position" class="form-control"
-                                        placeholder="{{ __('keywords.position') }}">
-                                    <x-validation-error field="position"></x-validation-error>
-                                </div>
-
                                 {{-- Image / Preview --}}
                                 <div class="col-lg-6 form-group">
                                     {{-- Image Live preview --}}
@@ -52,13 +37,6 @@
                                             accept="image/*">
                                         <x-validation-error field="image" />
                                     </div>
-                                </div>
-
-                                {{-- description --}}
-                                <div class="form-group col-md-12 mt-3">
-                                    <x-form-label field="description"></x-form-label>
-                                    <textarea id="description" name="description" class="form-control" placeholder="{{ __('keywords.description') }}"></textarea>
-                                    <x-validation-error field="description"></x-validation-error>
                                 </div>
                             </div>
                         </form>

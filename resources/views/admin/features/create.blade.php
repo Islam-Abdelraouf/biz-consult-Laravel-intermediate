@@ -11,7 +11,7 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="<i class='fe fe-bookmark fe-32 mr-3'></i>{{ __('keywords.create_feature') }}">
+                    headerTitle="{{ __('keywords.create_feature') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>

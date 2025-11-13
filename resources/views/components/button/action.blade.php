@@ -14,8 +14,8 @@
     // styling attributes
     'backColor' => null,
     'color' => null,
-    'width' => '34px',
-    'height' => '34px',
+    'width' => '38px',
+    'height' => '38px',
 ])
 
 @php
@@ -29,7 +29,7 @@
     $formName = $formName ?: 'deleteForm-';
     $formFullId = $formName . $formId;
     $common = $attributes->merge([
-        'class' => 'btn rounded-1 p-1',
+        'class' => 'btn rounded-1 p-2',
         'style' => "height: {$height}; width: {$width}; background:{$bkColor}; color:{$frColor};",
     ]);
 @endphp

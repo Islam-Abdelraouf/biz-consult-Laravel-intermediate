@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.show_testimonial'))
+@section('title', __('keywords.show_company'))
 
 {{-- content --}}
 @section('content')
@@ -11,7 +11,7 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="{{ __('keywords.show_testimonial') }}">
+                    headerTitle="{{ __('keywords.show_company') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>
@@ -21,20 +21,7 @@
                     <div class="card-body">
                         <div class="row">
 
-                            <div class="form-group col-md-6 mb-2">
-                                <div>
-                                    {{-- name --}}
-                                    <label for="name">{{ __('keywords.name') }}</label>
-                                    <p class="form-control">{{ $testimonial->name }}</p>
-                                </div>
-                                <div>
-                                    {{-- position --}}
-                                    <label for="position">{{ __('keywords.position') }}</label>
-                                    <p class="form-control">{{ $testimonial->position }}</p>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-2 mb-2 pb-3">
-
+                            <div class="form-group col-md-6 mb-2 pb-3">
                             </div>
                             {{-- image --}}
                             <div class="form-group col-md-4 mb-2 pb-3">
@@ -42,17 +29,15 @@
                                 <div>
                                     <img img class="rounded p-0" name="image"
                                         style="width:120px;height:120px;object-fit:cover;"
-                                        src="{{ asset('assets-front/img/' . $testimonial->image) }}">
+                                        src="{{ asset('assets-front/img/' . $company->image) }}">
                                 </div>
                             </div>
-                            {{-- description --}}
-                            <div class="form-group col-md-12 mb-3">
-                                <label for="description">{{ __('keywords.description') }}</label>
-                                <div>
-                                    <textarea class="form-control bg-white" rows="6" disabled>{{ $testimonial->description }}</textarea>
-                                </div>
-                            </div>
+                            <div class="form-group col-md-6 mb-2 pb-3">
 
+                                {{-- created at --}}
+                                <label for="name">{{ __('keywords.name') }}</label>
+                                <p class="form-control">{{ $company->name }}</p>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -61,14 +46,13 @@
                 <x-page-navigation-footer>
                     <x-slot:actions>
                         {{-- edit button --}}
-                        <x-button.edit
-                            myHref="{{ route('admin.testimonials.edit', ['testimonial' => $testimonial]) }}">
+                        <x-button.edit myHref="{{ route('admin.companies.edit', ['company' => $company]) }}">
                         </x-button.edit>
                         {{-- back button --}}
                         <x-button.back></x-button.back>
                     </x-slot:actions>
                 </x-page-navigation-footer>
-                
+
             </div>
         </div> <!-- .row -->
     </div> <!-- .container-fluid -->
