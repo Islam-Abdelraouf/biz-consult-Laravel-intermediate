@@ -10,8 +10,10 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.features') }}"
-                    btnCaption="{{ __('keywords.add_new_feature') }}" btnColor="primary"
+                <x-page-navigation-header 
+                    headerTitle="{{ __('keywords.features') }}"
+                    btnCaption="{{ __('keywords.add_new_feature') }}" 
+                    btnColor="primary"
                     btnHref="{{ route('admin.features.create') }}">
                 </x-page-navigation-header>
 

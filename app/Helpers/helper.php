@@ -72,7 +72,7 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
 
 //  Handle image upload logic-------------------------->>>>>
-function uploadImage($imgPrefix, $imgDir, $storedImageName, $uploadedImageName): string|null
+function uploadImage($imgDir, $imgPrefix, $uploadedImageName, $storedImageName): string|null
 {
     if ($uploadedImageName) {
 
@@ -93,7 +93,6 @@ function uploadImage($imgPrefix, $imgDir, $storedImageName, $uploadedImageName):
             } while (File::exists($imgDir . DIRECTORY_SEPARATOR . $newImageName));
             // 3. Move the uploaded image to the 'img' folder
             $uploadedImageName->move($imgDir, $newImageName);
-            // dd('new record');
         } else {
 
             // When updating an existing record:

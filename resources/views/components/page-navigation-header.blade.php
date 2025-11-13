@@ -47,10 +47,6 @@
                     caption="{{ $btnCaption }}">
                 </x-action-button>
             @endif
-
-
-
-
         </div>
     </div>
 </div>

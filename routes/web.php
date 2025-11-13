@@ -6,6 +6,7 @@ use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\FeatureController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestimonialController;
+use App\Http\Controllers\MemberController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -54,6 +55,11 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')
             //----------------------------------------->>>> TestimonialS
             Route::controller(TestimonialController::class)->group(function () {
                 Route::resource('testimonials', TestimonialController::class);
+            });
+
+            //----------------------------------------->>>> TestimonialS
+            Route::controller(MemberController::class)->group(function () {
+                Route::resource('members', MemberController::class);
             });
 
 
