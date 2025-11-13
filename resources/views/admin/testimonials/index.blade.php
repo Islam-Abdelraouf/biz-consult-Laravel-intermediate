@@ -11,7 +11,7 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="<i class='fe fe-thumbs-up fe-32 mr-3'></i>{{ __('keywords.testimonials') }}">
+                    headerTitle="{{ __('keywords.testimonials') }}">
                     <x-slot:actions>
                         {{-- create button --}}
                         <x-button.create myHref="{{ route('admin.testimonials.create') }}"
@@ -61,7 +61,7 @@
                                                     {{-- delete button --}}
                                                     <x-button.action type="delete"
                                                         href="{{ route('admin.testimonials.destroy', ['testimonial' => $testimonial]) }}"
-                                                        scriptId="{{ $testimonial->id }}">
+                                                        formId="{{ $testimonial->id }}">
                                                     </x-button.action>
                                                 </div>
                                             </td>

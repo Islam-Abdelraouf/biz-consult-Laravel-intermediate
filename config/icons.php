@@ -5,14 +5,14 @@ return [
     //  dashboard main icons
     'dashboardIcon' => 'fe-home',
     'servicesIcon' => 'fe-codesandbox',
-    'featuresIcon' => 'fe-bookmark',
+    'featuresIcon' => 'fe-bookmark', //fe-layers
     'messagesIcon' => 'fe-mail',
     'subscribersIcon' => 'fe-users',
-    'testmonialsIcon' => 'fe-thumbs-up',
+    'testimonialsIcon' => 'fe-award', //fe-thumbs-up
     'membersIcon' => 'fe-smile',
     'publicSiteIcon' => 'fe-chrome',
     'heroSectionIcon' => 'fe-settings',
-    'clients' => 'fe-smile',
+    'companiesIcon' => 'fe-trello',
 
 
     //  buttons icons

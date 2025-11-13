@@ -58,6 +58,9 @@ return [
     'logout' => 'Logout',
     //  services words
     'services' => 'Services',
+    'create_service' => 'Create New Service',
+    'show_service' => 'Show Service',
+    'edit_service' => 'Edit Service',
 
     //  subscribers words
     'subscribers' => 'Subscribers',
@@ -66,9 +69,13 @@ return [
     'edit_subscriber' => 'Edit Subscriber',
     'subscribed_at' => 'Subscribed At',
 
-    'create_service' => 'Create New Service',
-    'show_service' => 'Show Service',
-    'edit_service' => 'Edit Service',
+    //  companies words
+    'companies' => 'Companies',
+    'create_company' => 'Create New company',
+    'show_company' => 'Show company',
+    'edit_company' => 'Edit company',
+    'created_at' => 'Subscribed At',
+
     'title' => 'Title',
     'icon' => 'Icon',
     'description' => 'Description',

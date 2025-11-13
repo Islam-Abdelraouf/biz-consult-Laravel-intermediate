@@ -10,7 +10,7 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="<i class='fe fe-codesandbox fe-32 mr-3'></i>{{ __('keywords.edit_service') }}">
+                <x-page-navigation-header headerTitle="{{ __('keywords.edit_service') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>

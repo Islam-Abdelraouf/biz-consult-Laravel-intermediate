@@ -11,7 +11,7 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="<i class='fe fe-smile fe-32 mr-3'></i>{{ __('keywords.show_member') }}">
+                    headerTitle="{{ __('keywords.show_member') }}">
                     <x-slot:actions>
                     </x-slot:actions>
                 </x-page-navigation-header>

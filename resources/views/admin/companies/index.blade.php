@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.services'))
+@section('title', __('keywords.companies'))
 
 {{-- content --}}
 @section('content')
@@ -11,16 +11,16 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="{{ __('keywords.services') }}">
+                    headerTitle="{{ __('keywords.companies') }}">
                     <x-slot:actions>
                         {{-- create button --}}
-                        <x-button.create myHref="{{ route('admin.services.create') }}"
-                            myCaption="{{ __('keywords.create_service') }}">
+                        <x-button.create myHref="{{ route('admin.companies.create') }}"
+                            myCaption="{{ __('keywords.create_company') }}">
                         </x-button.create>
                     </x-slot:actions>
                 </x-page-navigation-header>
 
-                <!-- main card -->
+                <!-- {{-- main card --}} -->
                 <div class="card shadow">
                     <div class="card-body">
 
@@ -32,35 +32,36 @@
                             <thead class="thead-dark">
                                 <tr>
                                     <th width="5%">#</th>
-                                    <th>{{ __('keywords.title') }}</th>
-                                    <th width="10%">{{ __('keywords.icon') }}</th>
+                                    <th>{{ __('keywords.image') }}</th>
+                                    <th width="25%">{{ __('keywords.created_at') }}</th>
                                     <th width="25%">{{ __('keywords.actions') }}</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @if (count($services) > 0)
-                                    @foreach ($services as $service)
+                                @if (count($companies) > 0)
+                                    @foreach ($companies as $company)
                                         <tr>
-                                            <td>{{ $services->firstItem() + $loop->index }}</td>
-                                            <td>{{ $service->title }}</td>
-                                            <td><i class="fe {{ $service->icon }} fe-2x"></i></td>
+                                            <td>{{ $companies->firstItem() + $loop->index }}</td>
+                                            <td>
+                                                <img style="width:100px;height:100px;object-fit:cover;"
+                                                    src="{{ asset('assets-front/img/' . $company->image) }}"
+                                                    alt="{{ $company->image }}">
+                                            </td>
+                                            <td>{{ $company->created_at }}</td>
                                             <td>
                                                 <div class="d-inline">
                                                     {{-- show button --}}
                                                     <x-button.action type="show"
-                                                        href="{{ route('admin.services.show', ['service' => $service]) }}">
+                                                        href="{{ route('admin.companies.show', ['company' => $company]) }}">
                                                     </x-button.action>
-
                                                     {{-- edit button --}}
                                                     <x-button.action type="edit"
-                                                        href="{{ route('admin.services.edit', ['service' => $service]) }}">
+                                                        href="{{ route('admin.companies.edit', ['company' => $company]) }}">
                                                     </x-button.action>
-
-
                                                     {{-- delete button --}}
                                                     <x-button.action type="delete"
-                                                        href="{{ route('admin.services.destroy', ['service' => $service]) }}"
-                                                        formId="{{ $service->id }}">
+                                                        href="{{ route('admin.companies.destroy', ['company' => $company]) }}"
+                                                        formId="{{ $company->id }}">
                                                     </x-button.action>
                                                 </div>
                                             </td>
@@ -70,16 +71,15 @@
                                     {{-- zero record alert --}}
                                     <x-empty-alert></x-empty-alert>
                                 @endif
-
                             </tbody>
                         </table>
 
                         {{-- pagination links --}}
-                        {{ $services->links() }}
-                        {{-- {{ $services->render('pagination::bootstrap-4') }} --}}
+                        {{ $companies->links() }}
+                        {{-- {{ $companies->render('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
             </div>
-        </div>
+        </div> <!-- .row -->
     </div> <!-- .container-fluid -->
 @endsection

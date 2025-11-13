@@ -66,7 +66,7 @@
         {{-- Testimonials --}}
         <x-side-menu-item
             href="{{ route('admin.testimonials.index') }}"
-            icon="{{ config('icons.testmonialsIcon') }}"
+            icon="{{ config('icons.testimonialsIcon') }}"
             name="{{ __('keywords.testimonials') }}">
         </x-side-menu-item>
 
@@ -77,6 +77,13 @@
             name="{{ __('keywords.members') }}">
         </x-side-menu-item>
 
+        {{-- Companies --}}
+        <x-side-menu-item
+            href="{{ route('admin.companies.index') }}"
+            icon="{{ config('icons.companiesIcon') }}"
+            name="{{ __('keywords.companies') }}">
+        </x-side-menu-item>
+
         {{-- public website --}}
         <x-side-menu-item
             href="{{ route('front.home') }}"
@@ -84,19 +91,6 @@
             name="{{ __('keywords.public_website') }}">
         </x-side-menu-item>
 
-        {{-- hero section --}}
-        {{-- <x-side-menu-item --}}
-            {{-- href="{{ route('admin.hero.index') }}" --}}
-            {{-- icon="{{ config('icons.heroSectionIcon') }}" --}}
-            {{-- name="{{ __('keywords.hero_section') }}"> --}}
-        {{-- </x-side-menu-item> --}}
-
-        {{-- our clients --}}
-        {{-- <x-side-menu-item --}}
-            {{-- href="{{ route('admin.clients.index') }}" --}}
-            {{-- icon="{{ config('icons.clients') }}" --}}
-            {{-- name="{{ __('keywords.our_clients') }}"> --}}
-        {{-- </x-side-menu-item> --}}
 
 
 
