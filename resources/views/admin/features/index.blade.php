@@ -10,23 +10,27 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header 
-                    headerTitle="{{ __('keywords.features') }}"
-                    btnCaption="{{ __('keywords.add_new_feature') }}" 
-                    btnColor="primary"
-                    btnHref="{{ route('admin.features.create') }}">
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-bookmark fe-32 mr-3'></i>{{ __('keywords.features') }}">
+                    <x-slot:actions>
+                        {{-- create button --}}
+                        <x-button.create
+                            myHref="{{ route('admin.features.create') }}"
+                            myCaption="{{ __('keywords.create_feature') }}">
+                        </x-button.create>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-                <!-- simple table -->
+                <!-- main card -->
                 <div class="card shadow">
                     <div class="card-body">
 
                         {{-- success message alert --}}
-                        <x-success-alert />
+                        <x-success-alert></x-success-alert>
 
-                        {{-- services table --}}
-                        <table class="table-hover table">
-                            <thead class="thead-dark">
+                        <!-- table card -->
+                        <table class="table">
+                            <thead class="thead-light">
                                 <tr>
                                     <th width="5%">#</th>
                                     <th>{{ __('keywords.title') }}</th>
@@ -42,42 +46,35 @@
                                             <td>{{ $feature->title }}</td>
                                             <td><i class="fe {{ $feature->icon }} fe-2x"></i></td>
                                             <td>
-
-                                                {{-- edit button --}}
-                                                <x-action-button type="edit"
-                                                    href="{{ route('admin.features.edit', ['feature' => $feature]) }}">
-                                                </x-action-button>
-
-                                                {{-- show button --}}
-                                                <x-action-button type="show"
-                                                    href="{{ route('admin.features.show', ['feature' => $feature]) }}">
-                                                </x-action-button>
-
-                                                {{-- delete button --}}
-                                                <x-action-button type="delete"
-                                                    href="{{ route('admin.features.destroy', ['feature' => $feature]) }}"
-                                                    scriptId="{{ $feature->id }}">
-                                                </x-action-button>
-
+                                                <div class="d-inline">
+                                                    {{-- show button --}}
+                                                    <x-button.action type="show"
+                                                        href="{{ route('admin.features.show', ['feature' => $feature]) }}">
+                                                    </x-button.action>
+                                                    {{-- edit button --}}
+                                                    <x-button.action type="edit"
+                                                        href="{{ route('admin.features.edit', ['feature' => $feature]) }}">
+                                                    </x-button.action>
+                                                    {{-- delete button --}}
+                                                    <x-button.action type="delete"
+                                                        href="{{ route('admin.features.destroy', ['feature' => $feature]) }}"
+                                                        scriptId="{{ $feature->id }}">
+                                                    </x-button.action>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
-                                    <x-empty-alert />
+                                    {{-- zero record alert --}}
+                                    <x-empty-alert></x-empty-alert>
                                 @endif
-
                             </tbody>
                         </table>
-
                         {{-- pagination links --}}
                         {{ $features->links() }}
-                        {{-- {{ $features->render('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-
-
-
-
-    @endsection
+            </div>
+        </div>
+    </div> <!-- .container-fluid -->
+@endsection

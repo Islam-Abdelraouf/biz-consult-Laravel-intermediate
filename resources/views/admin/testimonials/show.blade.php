@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.testimonial_create'))
+@section('title', __('keywords.show_testimonial'))
 
 {{-- content --}}
 @section('content')
@@ -10,13 +10,13 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.show_testimonial') }}"
-                    btnCaption="{{ __('keywords.back') }}" btnColor="outline-danger"
-                    btnHref="{{ route('admin.testimonials.index') }}">
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-thumbs-up fe-32 mr-3'></i>{{ __('keywords.show_testimonial') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-
-                <!-- simple table -->
+                <!-- main card -->
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="row">
@@ -40,7 +40,8 @@
                             <div class="form-group col-md-4 mb-2 pb-3">
                                 <x-form-label field="image"></x-form-label>
                                 <div>
-                                    <img img class="rounded p-0" name="image" style="width:120px;height:120px;object-fit:cover;"
+                                    <img img class="rounded p-0" name="image"
+                                        style="width:120px;height:120px;object-fit:cover;"
                                         src="{{ asset('assets-front/img/' . $testimonial->image) }}">
                                 </div>
                             </div>
@@ -55,12 +56,20 @@
                         </div>
                     </div>
                 </div>
+
+                {{-- page navigation foot --}}
+                <x-page-navigation-footer>
+                    <x-slot:actions>
                         {{-- edit button --}}
-                        <div class="mt-3">
-                            <a class="btn btn-primary" href="{{ route('admin.testimonials.edit',['testimonial'=>$testimonial]) }}">
-                                <i class="fe fe-edit mr-2"></i>{{ __('keywords.edit') }}
-                            </a>
-                        </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    @endsection
+                        <x-button.edit
+                            myHref="{{ route('admin.testimonials.edit', ['testimonial' => $testimonial]) }}">
+                        </x-button.edit>
+                        {{-- back button --}}
+                        <x-button.back></x-button.back>
+                    </x-slot:actions>
+                </x-page-navigation-footer>
+                
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

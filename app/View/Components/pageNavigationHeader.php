@@ -16,9 +16,9 @@ class pageNavigationHeader extends Component
         public $headerTitle =
         'Please provide a title ...',       // if the header's title is missing
         
-        public $btnCaption = '',            //defaults : no button to render
-        public $btnColor = '',              //defaults : no button to render
-        public $btnHref = ''                //defaults : no button to render
+        // public $btnCaption = '',            //defaults : no button to render
+        // public $btnColor = '',              //defaults : no button to render
+        // public $btnHref = ''                //defaults : no button to render
     ) {
         // "createActionButton" is true, if the user provides all button's details
         $this->createActionButton = isset($btnCaption) && isset($btnColor) && isset($btnHref);

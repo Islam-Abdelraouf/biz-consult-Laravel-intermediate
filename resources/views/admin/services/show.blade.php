@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.service_create'))
+@section('title', __('keywords.show_service'))
 
 {{-- content --}}
 @section('content')
@@ -11,15 +11,12 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="{{ __('keywords.show_service') }}"
-
-                    btnCaption="{{ __('keywords.back') }}"
-                    btnColor="outline-danger"
-                    btnHref="{{ route('admin.services.index') }}">
+                    headerTitle="<i class='fe fe-codesandbox fe-32 mr-3'></i>{{ __('keywords.show_service') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-
-                <!-- simple table -->
+                <!-- main card -->
                 <div class="card shadow">
                     <div class="card-body">
                         <div class="row">
@@ -34,7 +31,7 @@
                                 <label for="icon">{{ __('keywords.icon') }}</label>
                                 <div class="d-flex justify-content-start align-items-center">
                                     <i class="fe {{ $service->icon }} fe-2x"></i>
-                                    <p class="ml-2 my-0 py-0">{{ $service->icon }}</p>
+                                    <p class="my-0 ml-2 py-0">{{ $service->icon }}</p>
                                 </div>
                             </div>
                             {{-- description --}}
@@ -42,10 +39,23 @@
                                 <label for="description">{{ __('keywords.description') }}</label>
                                 <p class="form-control">{{ $service->description }}</p>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    @endsection
+
+                {{-- page navigation foot --}}
+                <x-page-navigation-footer>
+                    <x-slot:actions>
+                        {{-- edit button --}}
+                        <x-button.edit
+                            myHref="{{ route('admin.services.edit', ['service' => $service]) }}">
+                        </x-button.edit>
+                        {{-- back button --}}
+                        <x-button.back></x-button.back>
+                    </x-slot:actions>
+                </x-page-navigation-footer>
+                
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

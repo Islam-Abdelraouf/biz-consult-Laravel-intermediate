@@ -31,22 +31,16 @@
 |   and member pages, keeping the layout modular and maintainable.
 --}}
 
-
 <div class="card mb-3 shadow">
     <div class="card-body">
         <div class="d-flex justify-content-between align-items-center rounded bg-white">
             {{-- page title --}}
-            <h2 class="h5">{{ $headerTitle }}</h2>
+            <h2 class="h5">{!! $headerTitle !!}</h2>
 
-            @if ($createActionButton)
-                {{-- add new button --}}
-                <x-action-button
-                    type="action"
-                    color="{{ $btnColor }}"
-                    href="{{ $btnHref }}"
-                    caption="{{ $btnCaption }}">
-                </x-action-button>
-            @endif
+            <div class="d-inline">
+                {{ $actions ??'' }}
+            </div>
         </div>
     </div>
 </div>
+

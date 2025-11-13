@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.service_create'))
+@section('title', __('keywords.edit_service'))
 
 {{-- content --}}
 @section('content')
@@ -10,18 +10,16 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header 
-                    headerTitle="{{ __('keywords.edit_service') }}"
-
-                    btnCaption="{{ __('keywords.back') }}" 
-                    btnColor="outline-danger"
-                    btnHref="{{ route('admin.services.index') }}">
+                <x-page-navigation-header headerTitle="<i class='fe fe-codesandbox fe-32 mr-3'></i>{{ __('keywords.edit_service') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-
+                {{-- form card --}}
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('admin.services.update', ['service' => $service]) }}" method="post">
+                        <form action="{{ route('admin.services.update', ['service' => $service]) }}" method="post"
+                            id="main-form">
 
                             {{-- HTTP PUT METHOD --}}
                             @method('PUT')
@@ -50,13 +48,20 @@
                                     <x-validation-error field="description"></x-validation-error>
                                 </div>
                             </div>
-
-                            {{-- update button --}}
-                            <x-action-button type="submit" caption="{{ __('keywords.update') }}" ></x-action-button>
-
                         </form>
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    @endsection
+                {{-- page navigation foot --}}
+                <x-page-navigation-footer>
+                    <x-slot:actions>
+                        {{-- update button --}}
+                        <x-button.update></x-button.update>
+                        {{-- back button --}}
+                        <x-button.back></x-button.back>
+                    </x-slot:actions>
+                </x-page-navigation-footer>
+                </div>
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

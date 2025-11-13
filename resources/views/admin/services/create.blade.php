@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.service_create'))
+@section('title', __('keywords.create_service'))
 
 {{-- content --}}
 @section('content')
@@ -11,18 +11,15 @@
 
                 {{-- page navigation head --}}
                 <x-page-navigation-header
-                    headerTitle="{{ __('keywords.add_new_service') }}"
-
-                    btnCaption="{{ __('keywords.back') }}"
-                    btnColor="outline-danger"
-                    btnHref="{{ route('admin.services.index') }}">
+                    headerTitle="<i class='fe fe-codesandbox fe-32 mr-3'></i>{{ __('keywords.create_service') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-
-                <!-- simple table -->
+                <!-- form card -->
                 <div class="card shadow">
                     <div class="card-body">
-                        <form action="{{ route('admin.services.store') }}" method="post">
+                        <form action="{{ route('admin.services.store') }}" method="post" id="main-form">
                             @csrf
                             {{-- title --}}
                             <div class="row">
@@ -44,13 +41,21 @@
                                     <x-validation-error field="description"></x-validation-error>
                                 </div>
                             </div>
-                            {{-- button --}}
-                            <div>
-                                <button class="btn btn-primary" type="submit">{{ __('keywords.save') }}</button>
-                            </div>
                         </form>
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    @endsection
+
+                {{-- page navigation foot --}}
+                <x-page-navigation-footer>
+                    <x-slot:actions>
+                        {{-- save button --}}
+                        <x-button.save></x-button.save>
+                        {{-- back button --}}
+                        <x-button.back></x-button.back>
+                    </x-slot:actions>
+                </x-page-navigation-footer>
+
+            </div>
+        </div>
+    </div> <!-- .container-fluid -->
+@endsection

@@ -28,7 +28,7 @@ return [
 
     //  testimonials words
     'testimonials' => 'Testimonials',
-    'add_new_testimonial' => 'Create New Testimonial',
+    'create_testimonial' => 'Create New Testimonial',
     'show_testimonial' => 'Show Testimonial',
     'edit_testimonial' => 'Edit Testimonial',
     'position' => 'Position',
@@ -40,7 +40,7 @@ return [
 
     //  members words
     'members' => 'Members',
-    'add_new_member' => 'Create New Member',
+    'create_member' => 'Create New Member',
     'show_member' => 'Show Member',
     'edit_member' => 'Edit Member',
     'facebook' => 'Facebook',
@@ -61,8 +61,12 @@ return [
 
     //  subscribers words
     'subscribers' => 'Subscribers',
+    'create_subscriber' => 'Create New Subscriber',
+    'show_subscriber' => 'Show Subscriber',
+    'edit_subscriber' => 'Edit Subscriber',
+    'subscribed_at' => 'Subscribed At',
 
-    'add_new_service' => 'Create New Service',
+    'create_service' => 'Create New Service',
     'show_service' => 'Show Service',
     'edit_service' => 'Edit Service',
     'title' => 'Title',
@@ -75,7 +79,7 @@ return [
 
     //  services words
     'messages' => 'Messages',
-    'add_new_message' => 'Create New Message',
+    'create_message' => 'Create New Message',
     'show_message' => 'Show Message',
     'edit_message' => 'Edit Message',
     'name' => 'Name',
@@ -86,6 +90,7 @@ return [
 
     //  features words
     'features' => 'Features',
-    'add_new_feature' => 'Create New Feature',
+    'create_feature' => 'Create New Feature',
+    'edit_feature' => 'Edit Feature',
     'show_feature' => 'Show Feature',
 ];

@@ -1,7 +1,7 @@
 @extends('admin.master')
 
 {{-- update title --}}
-@section('title', __('keywords.message_create'))
+@section('title', __('keywords.show_message'))
 
 {{-- content --}}
 @section('content')
@@ -10,11 +10,11 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.show_message') }}"
-                    btnCaption="{{ __('keywords.back') }}" btnColor="outline-danger"
-                    btnHref="{{ route('admin.messages.index') }}">
+                <x-page-navigation-header
+                    headerTitle="<i class='fe fe-mail fe-32 mr-3'></i>{{ __('keywords.show_message') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
-
 
                 <!-- simple table -->
                 <div class="card shadow">
@@ -44,10 +44,17 @@
                                 </div>
                                 {{-- <p class="form-control">{{ $message->message }}</p> --}}
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-    @endsection
+                {{-- page navigation foot --}}
+                <x-page-navigation-footer>
+                    <x-slot:actions>
+                        {{-- back button --}}
+                        <x-button.back></x-button.back>
+                    </x-slot:actions>
+                </x-page-navigation-footer>
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

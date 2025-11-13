@@ -10,19 +10,23 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header headerTitle="{{ __('keywords.members') }}"
-                    btnCaption="{{ __('keywords.add_new_member') }}" btnColor="primary"
-                    btnHref="{{ route('admin.members.create') }}">
+                <x-page-navigation-header headerTitle="<i class='fe fe-smile fe-32 mr-3'></i>{{ __('keywords.members') }}">
+                    <x-slot:actions>
+                        {{-- create button --}}
+                        <x-button.create myHref="{{ route('admin.members.create') }}"
+                            myCaption="{{ __('keywords.create_member') }}">
+                        </x-button.create>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-                <!-- simple table -->
+                <!-- main card -->
                 <div class="card shadow">
                     <div class="card-body">
 
-                        {{-- success member alert --}}
-                        <x-success-alert />
+                        {{-- success alert --}}
+                        <x-success-alert></x-success-alert>
 
-                        {{-- services table --}}
+                        {{-- table card --}}
                         <table class="table-hover table">
                             <thead class="thead-dark">
                                 <tr>
@@ -40,45 +44,42 @@
                                             <td>{{ $members->firstItem() + $loop->index }}</td>
                                             <td>{{ $member->name }}</td>
                                             <td>{{ $member->position }}</td>
-                                            <td><img style="width:100px;height:100px;object-fit:cover;" src="{{ asset('assets-front/img/' . $member->image) }}"
-                                                    alt="{{ $member->image }}"> </td>
                                             <td>
-
-                                                {{-- edit button --}}
-                                                <x-action-button type="edit"
-                                                    href="{{ route('admin.members.edit', ['member' => $member]) }}">
-                                                </x-action-button>
-
-                                                {{-- show button --}}
-                                                <x-action-button type="show"
-                                                    href="{{ route('admin.members.show', ['member' => $member]) }}">
-                                                </x-action-button>
-
-                                                {{-- delete button --}}
-                                                <x-action-button type="delete"
-                                                    href="{{ route('admin.members.destroy', ['member' => $member]) }}"
-                                                    scriptId="{{ $member->id }}">
-                                                </x-action-button>
-
+                                                <img style="width:100px;height:100px;object-fit:cover;"
+                                                    src="{{ asset('assets-front/img/' . $member->image) }}"
+                                                    alt="{{ $member->image }}">
+                                            </td>
+                                            <td>
+                                                <div class="d-inline">
+                                                    {{-- show button --}}
+                                                    <x-button.action type="show"
+                                                        href="{{ route('admin.members.show', ['member' => $member]) }}">
+                                                    </x-button.action>
+                                                    {{-- edit button --}}
+                                                    <x-button.action type="edit"
+                                                        href="{{ route('admin.members.edit', ['member' => $member]) }}">
+                                                    </x-button.action>
+                                                    {{-- delete button --}}
+                                                    <x-button.action type="delete"
+                                                        href="{{ route('admin.members.destroy', ['member' => $member]) }}"
+                                                        scriptId="{{ $member->id }}">
+                                                    </x-button.action>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
-                                    <x-empty-alert />
+                                    {{-- zero record alert --}}
+                                    <x-empty-alert></x-empty-alert>
                                 @endif
-
                             </tbody>
                         </table>
 
                         {{-- pagination links --}}
                         {{ $members->links() }}
-                        {{-- {{ $members->render('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-
-
-
-
-    @endsection
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection

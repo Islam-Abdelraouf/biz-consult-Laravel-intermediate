@@ -30,4 +30,45 @@
     <!-- App CSS -->
     <link rel="stylesheet" href="{{ asset($dir) }}/css/app-light.css" id="lightTheme">
     <link rel="stylesheet" href="{{ asset($dir) }}/css/app-dark.css" id="darkTheme" disabled>
+    <style>
+        .table thead th {
+            background-color: #f8f8f8 !important;
+            color: #000000 !important;
+            border: none !important;
+            border-radius: 2px;
+            /* red text */
+        }
+
+        .table tr:hover {
+            background-color: #f8f8f8 !important;
+
+            /* red text */
+        }
+
+        .btn:hover {
+            : #f8f8f8 !important;
+
+            /* red text */
+        }
+
+        /* Apply animation to all buttons */
+        button,
+        .btn {
+            transition: transform 0.8s ease, box-shadow 0.5s ease;
+        }
+
+        /* Subtle lift on hover */
+        button:hover,
+        .btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Smooth “click” feedback */
+        button:active,
+        .btn:active {
+            transform: translateY(-1px);
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+    </style>
 </head>

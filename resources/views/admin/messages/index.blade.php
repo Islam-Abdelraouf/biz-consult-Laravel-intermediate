@@ -10,21 +10,19 @@
             <div class="col-12">
 
                 {{-- page navigation head --}}
-                <x-page-navigation-header 
-                    headerTitle="{{ __('keywords.messages') }}"
-                    {{-- btnCaption="{{ __('keywords.add_new_message') }}" btnColor="primary"
-                    btnHref="{{ route('admin.messages.create') }}" --}}
-                    >
+                <x-page-navigation-header headerTitle="<i class='fe fe-mail fe-32 mr-3'></i>{{ __('keywords.messages') }}">
+                    <x-slot:actions>
+                    </x-slot:actions>
                 </x-page-navigation-header>
 
-                <!-- simple table -->
+                <!-- main card -->
                 <div class="card shadow">
                     <div class="card-body">
 
                         {{-- success message alert --}}
-                        <x-success-alert />
+                        <x-success-alert></x-success-alert>
 
-                        {{-- services table --}}
+                        {{-- table card --}}
                         <table class="table-hover table">
                             <thead class="thead-dark">
                                 <tr>
@@ -44,30 +42,24 @@
                                             <td>{{ $message->email }}</td>
                                             <td>{{ $message->subject }}</td>
                                             <td>
-
-                                                {{-- edit button --}}
-                                                {{-- <x-action-button type="edit"
-                                                    href="{{ route('admin.messages.edit', ['message' => $message]) }}">
-                                                </x-action-button> --}}
-
-                                                {{-- show button --}}
-                                                <x-action-button type="show"
-                                                    href="{{ route('admin.messages.show', ['message' => $message]) }}">
-                                                </x-action-button>
-
-                                                {{-- delete button --}}
-                                                <x-action-button type="delete"
-                                                    href="{{ route('admin.messages.destroy', ['message' => $message]) }}"
-                                                    scriptId="{{ $message->id }}">
-                                                </x-action-button>
-
+                                                <div class="d-inline">
+                                                    {{-- show button --}}
+                                                    <x-button.action type="show"
+                                                        href="{{ route('admin.messages.show', ['message' => $message]) }}">
+                                                    </x-button.action>
+                                                    {{-- delete button --}}
+                                                    <x-button.action type="delete"
+                                                        href="{{ route('admin.messages.destroy', ['message' => $message]) }}"
+                                                        scriptId="{{ $message->id }}">
+                                                    </x-button.action>
+                                                </div>
                                             </td>
                                         </tr>
                                     @endforeach
                                 @else
-                                    <x-empty-alert />
+                                    {{-- zero record alert --}}
+                                    <x-empty-alert></x-empty-alert>
                                 @endif
-
                             </tbody>
                         </table>
 
@@ -76,10 +68,7 @@
                         {{-- {{ $messages->render('pagination::bootstrap-4') }} --}}
                     </div>
                 </div>
-            </div> <!-- .row -->
-        </div> <!-- .container-fluid -->
-
-
-
-
-    @endsection
+            </div>
+        </div> <!-- .row -->
+    </div> <!-- .container-fluid -->
+@endsection
