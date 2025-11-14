@@ -76,26 +76,47 @@ function uploadImage($imgDir, $imgPrefix, $uploadedImageName, $storedImageName):
 {
     if ($uploadedImageName) {
 
-        //  when creating new record
         if (!$storedImageName) {
+            //  when creating a new record
+
             // 1. if the directory doesn't exist || make the directory
             if (!File::exists($imgDir)) {
                 File::makeDirectory($imgDir, 755);
             }
 
-            // 2. Extract the image extension
-            $ext = $uploadedImageName->getClientOriginalExtension();
-            $n = 1;
-            do {
-                // Generate a new image filename by appending "1" to the current file count
-                $newImageName = "{$imgPrefix}{$n}.{$ext}"; // example: " testminial-5.jpg "
-                $n++;
-            } while (File::exists($imgDir . DIRECTORY_SEPARATOR . $newImageName));
+            // 2. in case using the prefix (general case for the whole website)
+            /* 
+                in case of usin a prifex-sequenced pictures
+                like in the members and testmonials sections
+            */
+            if ((Str::endsWith($imgPrefix, '-'))) {
+                // Extract the image extension
+                $ext = $uploadedImageName->getClientOriginalExtension();
+                $n = 1;
+                do {
+                    // Generate a new image filename by appending "1" to the current file count
+                    $newImageName = "{$imgPrefix}{$n}.{$ext}"; // example: " testminial-5.jpg "
+                    $n++;
+                } while (File::exists($imgDir . DIRECTORY_SEPARATOR . $newImageName));
+
+                /* 
+                in case of usin one picture 
+                (only one record) 
+                as in the hero section or settings section
+                 */
+            } else {
+                dump('prefix will not be used');
+                // Extract the image extension
+                $ext = $uploadedImageName->getClientOriginalExtension();
+                // the new image filename is the same as the prifex name
+                $newImageName = "{$imgPrefix}.{$ext}"; // example: " hero.png "
+            }
             // 3. Move the uploaded image to the 'img' folder
             $uploadedImageName->move($imgDir, $newImageName);
-        } else {
 
+        } else {
             // When updating an existing record:
+
             // 1. Assign the old filename to the new image
             $newImageName = $storedImageName;
             // 2. Delete the previously stored image file
@@ -107,5 +128,5 @@ function uploadImage($imgDir, $imgPrefix, $uploadedImageName, $storedImageName):
         return $newImageName;
     }
 
-
+    return $storedImageName;
 }// Handle image upload logic----------->>>>>

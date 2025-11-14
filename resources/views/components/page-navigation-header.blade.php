@@ -19,7 +19,7 @@
         'member' => 'membersIcon',
         'compan' => 'companiesIcon',
         'setting' => 'settingsIcon',
-        'heroSection' => 'heroSectionIcon',
+        'hero' => 'heroSectionIcon',
     ]);
 
     $title = Str::lower($headerTitle ?? '');
