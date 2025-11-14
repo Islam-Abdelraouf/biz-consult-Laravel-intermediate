@@ -1,8 +1,5 @@
 <?php
-
 return [
-
-
     //  common words
     'index' => 'Index',
     'dashboard' => 'Dashboard',
@@ -20,12 +17,10 @@ return [
     'created_successfully' => 'Record has been created successfully !',
     'updated_successfully' => 'Record has been updated successfully !',
     'deleted_successfully' => 'Record has been deleted successfully !',
-
     //  clients words
     'our_clients' => 'Our Clients',
     //  hero section words
     'hero_section' => 'Hero Section',
-
     //  testimonials words
     'testimonials' => 'Testimonials',
     'create_testimonial' => 'Create New Testimonial',
@@ -35,20 +30,22 @@ return [
     'image' => 'Image',
     'upload_image' => 'Upload image',
     'choose_file' => 'Choose file',
-
-
-
+    //  settings words
+    'settings' => 'Settings',
+    'address' => 'Address',
+    'phone' => 'Phone',
+    'email' => 'Email',
+    'facebook' => 'Facebook',
+    'twitter' => 'Twitter',
+    'youtube' => 'Youtube',
+    'linkedin' => 'Linkedin',
+    'instagram' => 'Instagram',
+    'settings_updated_successfully' => 'Settings Updated Successfully',
     //  members words
     'members' => 'Members',
     'create_member' => 'Create New Member',
     'show_member' => 'Show Member',
     'edit_member' => 'Edit Member',
-    'facebook' => 'Facebook',
-    'twitter' => 'Twitter',
-    'linkedin' => 'Linkedin',
-
-
-
     //  products words
     'products' => 'Products',
     'addProduct' => 'Add New Product',
@@ -61,40 +58,32 @@ return [
     'create_service' => 'Create New Service',
     'show_service' => 'Show Service',
     'edit_service' => 'Edit Service',
-
     //  subscribers words
     'subscribers' => 'Subscribers',
     'create_subscriber' => 'Create New Subscriber',
     'show_subscriber' => 'Show Subscriber',
     'edit_subscriber' => 'Edit Subscriber',
     'subscribed_at' => 'Subscribed At',
-
     //  companies words
     'companies' => 'Companies',
     'create_company' => 'Create New company',
     'show_company' => 'Show company',
     'edit_company' => 'Edit company',
-    'created_at' => 'Subscribed At',
-
+    'created_at' => 'Created At',
     'title' => 'Title',
     'icon' => 'Icon',
     'description' => 'Description',
     'email-address' => 'Email address',
     'password' => 'Password',
     'remember-me' => 'Remember me',
-
-
     //  services words
     'messages' => 'Messages',
     'create_message' => 'Create New Message',
     'show_message' => 'Show Message',
     'edit_message' => 'Edit Message',
     'name' => 'Name',
-    'email' => 'Email',
     'subject' => 'Subject',
     'message' => 'Message',
-
-
     //  features words
     'features' => 'Features',
     'create_feature' => 'Create New Feature',

@@ -13,6 +13,10 @@ return [
     'publicSiteIcon' => 'fe-chrome',
     'heroSectionIcon' => 'fe-settings',
     'companiesIcon' => 'fe-trello',
+    'settingsIcon' => 'fe-settings',
+
+    //  logout button icon
+    'logoutIcon' => 'fe-log-out',
 
 
     //  buttons icons

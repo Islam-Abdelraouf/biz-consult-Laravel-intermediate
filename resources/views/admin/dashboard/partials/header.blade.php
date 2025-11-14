@@ -62,23 +62,36 @@
             vertical-align: middle;
         }
 
-        button,
+        /* button, */
         .btn {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         /* Subtle lift on hover */
-        button:hover,
+        /* button:hover, */
         .btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 6px 12px rgba(0, 0, 0, 0.25);
         }
 
         /* Smooth “click” feedback */
-        button:active,
+        /* button:active, */
         .btn:active {
             transform: translateY(-1px);
             box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        hr.side-menu {
+            border: none;
+            /* Remove default border */
+            border-top: 1px solid #ccc;
+            /* Add a top border for the line */
+            margin-top: 0;
+            /* Add some vertical space */
+            width: 100%;
+            /* Set a specific width */
+            background-color: transparent;
+            Ensure background is transparent
         }
     </style>
 </head>
