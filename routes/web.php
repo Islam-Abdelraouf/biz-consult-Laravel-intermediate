@@ -8,6 +8,7 @@ use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\TestimonialController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CompanyController;
+use App\Http\Controllers\SettingController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
@@ -66,6 +67,11 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')
             //----------------------------------------->>>> COMPANIES
             Route::controller(CompanyController::class)->group(function () {
                 Route::resource('companies', CompanyController::class);
+            });
+
+            //----------------------------------------->>>> SETTINGS
+            Route::controller(SettingController::class)->group(function () {
+                Route::resource('settings', SettingController::class)->only(['index','update']);
             });
 
 
