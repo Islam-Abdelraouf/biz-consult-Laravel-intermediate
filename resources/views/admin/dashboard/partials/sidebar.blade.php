@@ -31,6 +31,11 @@
 
         <hr class="side-menu">
 
+        {{-- Hero Section --}}
+        <x-side-menu-item href="{{ route('admin.heroes.index') }}" icon="{{ config('icons.heroSectionIcon') }}"
+            name="{{ __('keywords.hero_section') }}">
+        </x-side-menu-item>
+
         {{-- Services --}}
         <x-side-menu-item href="{{ route('admin.services.index') }}" icon="{{ config('icons.servicesIcon') }}"
             name="{{ __('keywords.services') }}">

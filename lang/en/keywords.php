@@ -21,6 +21,8 @@ return [
     'our_clients' => 'Our Clients',
     //  hero section words
     'hero_section' => 'Hero Section',
+    'main_title' => 'Hero Title',
+    'btn_title' => 'Button Title',
     //  testimonials words
     'testimonials' => 'Testimonials',
     'create_testimonial' => 'Create New Testimonial',

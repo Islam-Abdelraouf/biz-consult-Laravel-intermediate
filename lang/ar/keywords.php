@@ -18,9 +18,11 @@ return [
     'updated_successfully' => 'تم تحديث السجل بنجاح!',
     'deleted_successfully' => 'تم حذف السجل بنجاح!',
     //  clients words
-    'our_clients' => 'عملاؤنا',
+    'our_clients' => 'شركاء النجاح',
     //  hero section words
     'hero_section' => 'القسم البارز',
+    'main_title' => 'عنوان لقسم البارز',
+    'btn_title' => 'نص الزر',
     //  testimonials words
     'testimonials' => 'آراء العملاء',
     'create_testimonial' => 'إضافة شهادة جديدة',

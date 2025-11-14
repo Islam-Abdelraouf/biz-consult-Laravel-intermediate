@@ -11,7 +11,7 @@ return [
     'testimonialsIcon' => 'fe-award', //fe-thumbs-up
     'membersIcon' => 'fe-smile',
     'publicSiteIcon' => 'fe-chrome',
-    'heroSectionIcon' => 'fe-settings',
+    'heroSectionIcon' => 'fe-cpu',
     'companiesIcon' => 'fe-trello',
     'settingsIcon' => 'fe-settings',
 
