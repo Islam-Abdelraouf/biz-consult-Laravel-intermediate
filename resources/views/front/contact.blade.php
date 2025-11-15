@@ -8,7 +8,10 @@
 
 {{-- hero section --}}
 @section('hero-section')
-    <x-hero-secondary primaryTitle="Contact us" secondaryTitle="contact"></x-hero-secondary>
+    <x-front-hero-section-secondary-component prim
+        primaryTitle="Contact us" 
+        secondaryTitle="Contact">
+    </x-front-hero-section-secondary-component>
 @endsection
 
 {{-- content section --}}
@@ -24,32 +27,46 @@
                 <div class="col-lg-7 wow fadeInUp" data-wow-delay="0.3s">
                     <p class="mb-4 text-center">The contact form is currently inactive. Get a functional and working contact
                         form with Ajax & PHP in a few minutes. Just copy and paste the files, add a little code and you're
-                        done. <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p>
-                    <form>
+                        done. {{-- <a href="https://htmlcodex.com/contact-form">Download Now</a>.</p> --}}
+
+                        {{-- success message --}}
+                        <x-success-alert></x-success-alert>
+
+                        {{-- contact us form --}}
+                    <form action="{{ route('front.message.store') }}" method="post">
+                        @csrf
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <input type="text" class="form-control" id="name" name="name"
+                                        placeholder="Your Name" value="{{ old('name') ?? '' }}">
                                     <label for="name">Your Name</label>
                                 </div>
+                                <x-validation-error field="name"></x-validation-error>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" name="email"
+                                        placeholder="Your Email" value="{{ old('email') ?? '' }}">
                                     <label for="email">Your Email</label>
                                 </div>
+                                <x-validation-error field="email"></x-validation-error>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
-                                    <label for="subject">Subject</label>
+                                    <input type="text" class="form-control" id="subject" name="subject"
+                                        placeholder="Subject" value="{{ old('subject') ?? '' }}">
+                                    <label for="subject">subject</label>
                                 </div>
+                                <x-validation-error field="subject"></x-validation-error>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <textarea class="form-control" placeholder="Leave a message here" id="message" style="height: 150px"></textarea>
+                                    <textarea class="form-control" placeholder="Leave a message here" value="{{ old('message') ?? '' }}" id="message"
+                                        name="message" style="height: 150px"></textarea>
                                     <label for="message">Message</label>
                                 </div>
+                                <x-validation-error field="message"></x-validation-error>
                             </div>
                             <div class="col-12">
                                 <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>

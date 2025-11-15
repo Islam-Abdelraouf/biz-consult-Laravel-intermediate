@@ -5,17 +5,17 @@ namespace App\View\Components;
 use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
+use App\Models\Hero;
 
-class heroSecondary extends Component
+class FrontHeroSectionComponent extends Component
 {
-
-
+    public $hero;
     /**
      * Create a new component instance.
      */
-    public function __construct(public $primaryTitle, public $secondaryTitle)
+    public function __construct()
     {
-        //
+        $this->hero = Hero::findOrFail(1);
     }
 
     /**
@@ -23,6 +23,6 @@ class heroSecondary extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.hero-secondary');
+        return view('components.front-hero-section-component');
     }
 }

@@ -10,16 +10,26 @@ use App\Http\Controllers\MemberController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\SettingController;
 use App\Http\Controllers\HeroController;
+use App\Http\Controllers\FrontController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
-// Public routes - Without locale prefix
-Route::name('front.')->group(function (): void {
-    Route::view('/', 'front.index')->name('home');
-    Route::view('/about', 'front.about')->name('about');
-    Route::view('/service', 'front.service')->name('service');
-    Route::view('/contact', 'front.contact')->name('contact');
+// Front routes - Without locale prefix
+
+Route::name('front.')->controller(FrontController::class)->group(function (): void {
+    //----------------------------------------->>>> STORE SUBSCRIBERS
+    Route::post('/subscriber/store', 'subscriberStore')->name('subscriber.store');
+    //----------------------------------------->>>> STORE MESSAGEs
+    Route::post('/message/store', 'messageStore')->name('message.store');
+    //----------------------------------------->>>> HOME PAGE
+    Route::get('/', 'index')->name('home');
+    //----------------------------------------->>>> ABOUT PAGE
+    Route::get('/about', 'about')->name('about');
+    //----------------------------------------->>>> SERVICES PAGE
+    Route::get('/service', 'service')->name('service');
+    //----------------------------------------->>>> CONTACE PAGE
+    Route::get('/contact', 'contact')->name('contact');
 });
 
 // Admin routes - With locale prefix
