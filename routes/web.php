@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\admin\LanguageSwitcher;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MessageController;
 use App\Http\Controllers\ServiceController;
 use App\Http\Controllers\FeatureController;
@@ -43,7 +44,10 @@ Route::prefix(LaravelLocalization::setLocale() . '/admin')
         // Authenticated routes
         Route::middleware('auth')->group(function () {
             //----------------------------------------->>>> HOME PAGE
-            Route::view('/', 'admin.dashboard.index')->name('dashboard');
+            
+            Route::controller(DashboardController::class)->group(function(){
+                Route::get('/', 'index')->name('dashboard');
+            });
 
             //----------------------------------------->>>> SERVICES
             Route::controller(ServiceController::class)->group(function () {
