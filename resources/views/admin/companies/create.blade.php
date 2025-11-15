@@ -34,7 +34,7 @@
                                     {{-- Image Input --}}
                                     <div class="mb-3">
                                         <input type="file" id="imageInput" name="image" class="form-control"
-                                            accept="image/*">
+                                            accept=".png">
                                         <x-validation-error field="image" />
                                     </div>
                                 </div>

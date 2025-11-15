@@ -8,51 +8,13 @@
 
 {{-- hero section --}}
 @section('hero-section')
-    @include('front.partials.hero-main')
+<x-front-hero-section-component></x-front-hero-section-component>
 @endsection
 
 {{-- content section --}}
 @section('content')
     <!-- About Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-5 align-items-center">
-                <div class="col-lg-6 wow zoomIn" data-wow-delay="0.1s">
-                    <img class="img-fluid" src="{{ asset('assets-front') }}/img/about.png">
-                </div>
-                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="d-inline-block rounded-pill text-primary mb-3 border px-4">About Us</div>
-                    <h2 class="mb-4">Award Wining Consultancy Agency For Your Business</h2>
-                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum et tempor sit.
-                        Aliqu diam amet diam et eos labore. Clita erat ipsum et lorem et sit, sed stet no labore
-                        lorem sit. Sanctus clita duo justo et tempor eirmod</p>
-                    <div class="row g-3 mb-4">
-                        <div class="col-12 d-flex">
-                            <div class="btn-lg-square rounded-circle bg-primary flex-shrink-0">
-                                <i class="fa fa-user-tie text-white"></i>
-                            </div>
-                            <div class="ms-4">
-                                <h6>Business Planning</h6>
-                                <span>Tempor erat elitr rebum at clita. Diam dolor ipsum amet eos erat ipsum
-                                    lorem et sit sed stet lorem sit clita duo</span>
-                            </div>
-                        </div>
-                        <div class="col-12 d-flex">
-                            <div class="btn-lg-square rounded-circle bg-primary flex-shrink-0">
-                                <i class="fa fa-chart-line text-white"></i>
-                            </div>
-                            <div class="ms-4">
-                                <h6>Financial Analaysis</h6>
-                                <span>Tempor erat elitr rebum at clita. Diam dolor ipsum amet eos erat ipsum
-                                    lorem et sit sed stet lorem sit clita duo</span>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="btn btn-primary rounded-pill mt-2 px-5 py-3" href="">Read More</a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-front-about-us-component></x-front-about-us-component>
     <!-- About End -->
 
     <!-- Newsletter Start -->
@@ -62,12 +24,22 @@
                 <div class="col-12 col-md-6">
                     <h3 class="text-white">Ready to get started</h3>
                     <small class="text-white">Diam elitr est dolore at sanctus nonumy.</small>
-                    <div class="position-relative w-100 mt-3">
-                        <input class="form-control rounded-pill w-100 border-0 pe-5 ps-4" type="text"
-                            placeholder="Enter Your Email" style="height: 48px;">
-                        <button type="button" class="btn position-absolute end-0 top-0 me-2 mt-1 shadow-none"><i
-                                class="fa fa-paper-plane text-primary fs-4"></i></button>
-                    </div>
+                    <form action="{{ route('front.subscriber.store') }}" method="post">
+                        <div class="position-relative w-100 mt-3">
+                            <input class="form-control rounded-pill w-100 border-0 pe-5 ps-4" type="email" name="email"
+                                placeholder="Enter Your Email" style="height: 48px;">
+
+                            @csrf
+                            <button type="submit" class="btn position-absolute end-0 top-0 me-2 mt-1 shadow-none"><i
+                                    class="fa fa-paper-plane text-primary fs-4"></i></button>
+                        </div>
+                        <x-validation-error field="email" />
+                        @session('subscribtion_success')
+                            <div class="alert text-light py-1">
+                                {{ session('subscribtion_success') }}
+                            </div>
+                        @endsession
+                    </form>
                 </div>
                 <div class="col-md-6 mb-n5 d-none d-md-block text-center">
                     <img class="img-fluid mt-5" style="max-height: 250px;"
@@ -79,365 +51,22 @@
     <!-- Newsletter End -->
 
     <!-- Service Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="wow fadeInUp mx-auto text-center" data-wow-delay="0.1s" style="max-width: 600px;">
-                <div class="d-inline-block rounded-pill text-primary mb-3 border px-4">Our Services</div>
-                <h2 class="mb-5">We Provide Solutions On Your Business</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item h-100 rounded">
-                        <div class="d-flex justify-content-between">
-                            <div class="service-icon">
-                                <i class="fa fa-user-tie fa-2x"></i>
-                            </div>
-                            <a class="service-btn" href="">
-                                <i class="fa fa-link fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="p-5">
-                            <h5 class="mb-3">Business Research</h5>
-                            <span>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet
-                                diam sed stet lorem.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item h-100 rounded">
-                        <div class="d-flex justify-content-between">
-                            <div class="service-icon">
-                                <i class="fa fa-chart-pie fa-2x"></i>
-                            </div>
-                            <a class="service-btn" href="">
-                                <i class="fa fa-link fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="p-5">
-                            <h5 class="mb-3">Stretagic Planning</h5>
-                            <span>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet
-                                diam sed stet lorem.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="service-item h-100 rounded">
-                        <div class="d-flex justify-content-between">
-                            <div class="service-icon">
-                                <i class="fa fa-chart-line fa-2x"></i>
-                            </div>
-                            <a class="service-btn" href="">
-                                <i class="fa fa-link fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="p-5">
-                            <h5 class="mb-3">Market Analysis</h5>
-                            <span>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet
-                                diam sed stet lorem.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="service-item h-100 rounded">
-                        <div class="d-flex justify-content-between">
-                            <div class="service-icon">
-                                <i class="fa fa-chart-area fa-2x"></i>
-                            </div>
-                            <a class="service-btn" href="">
-                                <i class="fa fa-link fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="p-5">
-                            <h5 class="mb-3">Financial Analaysis</h5>
-                            <span>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet
-                                diam sed stet lorem.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="service-item h-100 rounded">
-                        <div class="d-flex justify-content-between">
-                            <div class="service-icon">
-                                <i class="fa fa-balance-scale fa-2x"></i>
-                            </div>
-                            <a class="service-btn" href="">
-                                <i class="fa fa-link fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="p-5">
-                            <h5 class="mb-3">legal Advisory</h5>
-                            <span>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet
-                                diam sed stet lorem.</span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
-                    <div class="service-item h-100 rounded">
-                        <div class="d-flex justify-content-between">
-                            <div class="service-icon">
-                                <i class="fa fa-house-damage fa-2x"></i>
-                            </div>
-                            <a class="service-btn" href="">
-                                <i class="fa fa-link fa-2x"></i>
-                            </a>
-                        </div>
-                        <div class="p-5">
-                            <h5 class="mb-3">Tax & Insurance</h5>
-                            <span>Erat ipsum justo amet duo et elitr dolor, est duo duo eos lorem sed diam stet
-                                diam sed stet lorem.</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-front-services-component></x-front-services-component>
     <!-- Service End -->
 
-
     <!-- Features Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="row g-5">
-                <div class="col-lg-5 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="d-inline-block rounded-pill text-primary mb-3 border px-4">Features</div>
-                    <h2 class="mb-4">Why People Choose Us? We Are Trusted & Award Wining Agency</h2>
-                    <p>Clita nonumy sanctus nonumy et clita tempor, et sea amet ut et sadipscing rebum amet
-                        takimata amet, sed accusam eos eos dolores dolore et. Et ea ea dolor rebum invidunt
-                        clita eos. Sea accusam stet stet ipsum, sit ipsum et ipsum kasd</p>
-                    <p>Et ea ea dolor rebum invidunt clita eos. Sea accusam stet stet ipsum, sit ipsum et ipsum
-                        kasd</p>
-                    <a class="btn btn-primary rounded-pill mt-2 px-5 py-3" href="">Read More</a>
-                </div>
-                <div class="col-lg-7">
-                    <div class="row g-5">
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.1s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="btn-square bg-primary rounded-circle me-3 flex-shrink-0">
-                                    <i class="fa fa-cubes text-white"></i>
-                                </div>
-                                <h6 class="mb-0">Best In Industry</h6>
-                            </div>
-                            <span>Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos diam dolor</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.2s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="btn-square bg-primary rounded-circle me-3 flex-shrink-0">
-                                    <i class="fa fa-percent text-white"></i>
-                                </div>
-                                <h6 class="mb-0">99% Success Rate</h6>
-                            </div>
-                            <span>Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos diam dolor</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.3s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="btn-square bg-primary rounded-circle me-3 flex-shrink-0">
-                                    <i class="fa fa-award text-white"></i>
-                                </div>
-                                <h6 class="mb-0">Award Winning</h6>
-                            </div>
-                            <span>Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos diam dolor</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.4s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="btn-square bg-primary rounded-circle me-3 flex-shrink-0">
-                                    <i class="fa fa-smile-beam text-white"></i>
-                                </div>
-                                <h6 class="mb-0">100% Happy Client</h6>
-                            </div>
-                            <span>Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos diam dolor</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="btn-square bg-primary rounded-circle me-3 flex-shrink-0">
-                                    <i class="fa fa-user-tie text-white"></i>
-                                </div>
-                                <h6 class="mb-0">Professional Advisors</h6>
-                            </div>
-                            <span>Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos diam dolor</span>
-                        </div>
-                        <div class="col-sm-6 wow fadeIn" data-wow-delay="0.6s">
-                            <div class="d-flex align-items-center mb-3">
-                                <div class="btn-square bg-primary rounded-circle me-3 flex-shrink-0">
-                                    <i class="fa fa-headset text-white"></i>
-                                </div>
-                                <h6 class="mb-0">24/7 Customer Support</h6>
-                            </div>
-                            <span>Magna sea eos sit dolor, ipsum amet ipsum lorem diam eos diam dolor</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-front-features-component></x-front-features-component>
     <!-- Features End -->
 
-
-    <!-- Client Start -->
-    <div class="container-xxl bg-primary wow fadeInUp my-6 py-5" data-wow-delay="0.1s">
-        <div class="container">
-            <div class="owl-carousel client-carousel">
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-1.png"
-                        alt=""></a>
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-2.png"
-                        alt=""></a>
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-3.png"
-                        alt=""></a>
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-4.png"
-                        alt=""></a>
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-5.png"
-                        alt=""></a>
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-6.png"
-                        alt=""></a>
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-7.png"
-                        alt=""></a>
-                <a href="#"><img class="img-fluid" src="{{ asset('assets-front') }}/img/logo-8.png"
-                        alt=""></a>
-            </div>
-        </div>
-    </div>
-    <!-- Client End -->
-
+    <!-- Client/Company Start -->
+    <x-front-clients-component></x-front-clients-component>
+    <!-- Client/Company End -->
 
     <!-- Testimonial Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="wow fadeInUp mx-auto text-center" data-wow-delay="0.1s" style="max-width: 600px;">
-                <div class="d-inline-block rounded-pill text-primary mb-3 border px-4">Testimonial</div>
-                <h2 class="mb-5">What Our Clients Say!</h2>
-            </div>
-            <div class="owl-carousel testimonial-carousel wow fadeInUp" data-wow-delay="0.1s">
-                <div class="testimonial-item rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos
-                        labore diam</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid rounded-circle flex-shrink-0"
-                            src="{{ asset('assets-front') }}/img/testimonial-1.jpg">
-                        <div class="ps-3">
-                            <h6 class="mb-1">Client Name</h6>
-                            <small>Profession</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos
-                        labore diam</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid rounded-circle flex-shrink-0"
-                            src="{{ asset('assets-front') }}/img/testimonial-2.jpg">
-                        <div class="ps-3">
-                            <h6 class="mb-1">Client Name</h6>
-                            <small>Profession</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos
-                        labore diam</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid rounded-circle flex-shrink-0"
-                            src="{{ asset('assets-front') }}/img/testimonial-3.jpg">
-                        <div class="ps-3">
-                            <h6 class="mb-1">Client Name</h6>
-                            <small>Profession</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="testimonial-item rounded p-4">
-                    <i class="fa fa-quote-left fa-2x text-primary mb-3"></i>
-                    <p>Dolor et eos labore, stet justo sed est sed. Diam sed sed dolor stet amet eirmod eos
-                        labore diam</p>
-                    <div class="d-flex align-items-center">
-                        <img class="img-fluid rounded-circle flex-shrink-0"
-                            src="{{ asset('assets-front') }}/img/testimonial-4.jpg">
-                        <div class="ps-3">
-                            <h6 class="mb-1">Client Name</h6>
-                            <small>Profession</small>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <x-front-testimonials-component></x-front-testimonials-component>
     <!-- Testimonial End -->
 
-
-    <!-- Team Start -->
-    <div class="container-xxl py-6">
-        <div class="container">
-            <div class="wow fadeInUp mx-auto text-center" data-wow-delay="0.1s" style="max-width: 600px;">
-                <div class="d-inline-block rounded-pill text-primary mb-3 border px-4">Our Team</div>
-                <h2 class="mb-5">Meet Our Team Members</h2>
-            </div>
-            <div class="row g-4">
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-                    <div class="team-item">
-                        <h5>Full Name</h5>
-                        <p class="mb-4">Designation</p>
-                        <img class="img-fluid rounded-circle w-100 mb-4" src="{{ asset('assets-front') }}/img/team-1.jpg"
-                            alt="">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-                    <div class="team-item">
-                        <h5>Full Name</h5>
-                        <p class="mb-4">Designation</p>
-                        <img class="img-fluid rounded-circle w-100 mb-4" src="{{ asset('assets-front') }}/img/team-2.jpg"
-                            alt="">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-                    <div class="team-item">
-                        <h5>Full Name</h5>
-                        <p class="mb-4">Designation</p>
-                        <img class="img-fluid rounded-circle w-100 mb-4" src="{{ asset('assets-front') }}/img/team-3.jpg"
-                            alt="">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.7s">
-                    <div class="team-item">
-                        <h5>Full Name</h5>
-                        <p class="mb-4">Designation</p>
-                        <img class="img-fluid rounded-circle w-100 mb-4" src="{{ asset('assets-front') }}/img/team-4.jpg"
-                            alt="">
-                        <div class="d-flex justify-content-center">
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-twitter"></i></a>
-                            <a class="btn btn-square text-primary m-1 bg-white" href=""><i
-                                    class="fab fa-linkedin-in"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Team/Members Start -->
+    <x-front-members-component></x-front-members-component>
     <!-- Team End -->
 @endsection

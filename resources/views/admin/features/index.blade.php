@@ -43,7 +43,7 @@
                                         <tr>
                                             <td>{{ $features->firstItem() + $loop->index }}</td>
                                             <td>{{ $feature->title }}</td>
-                                            <td><i class="fe {{ $feature->icon }} fe-2x"></i></td>
+                                            <td><i class="fa {{ $feature->icon }} fa-2x"></i></td>
                                             <td>
                                                 <div class="d-inline">
                                                     {{-- show button --}}

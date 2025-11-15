@@ -2,7 +2,9 @@
 
 namespace App\Http\Requests;
 
+use App\Models\Subscriber;
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class StoreSubscriberRequest extends FormRequest
 {
@@ -22,7 +24,7 @@ class StoreSubscriberRequest extends FormRequest
     public function rules(): array
     {
         return [
-            // 'title' => ['required', 'string'],
+            'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:subscribers,email'],
         ];
     }
     public function attributes(): array

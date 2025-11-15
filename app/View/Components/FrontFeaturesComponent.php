@@ -1,19 +1,22 @@
 <?php
 
-namespace {{ namespace }};
+namespace App\View\Components;
 
 use Closure;
-use Illuminate\View\Component;
 use Illuminate\Contracts\View\View;
+use Illuminate\View\Component;
+use App\Models\Feature;
 
-class {{ class }} extends Component
+class FrontFeaturesComponent extends Component
 {
+    public $features;
+
     /**
      * Create a new component instance.
      */
     public function __construct()
     {
-        //
+        $this->features = Feature::all();
     }
 
     /**
@@ -21,6 +24,6 @@ class {{ class }} extends Component
      */
     public function render(): View|Closure|string
     {
-        return {{ view }};
+        return view('components.front-features-component');
     }
 }
