@@ -1,66 +1,90 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+📘 BizConsult CMS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-powered CMS for managing the content of a consultancy public website.
 
-## About Laravel
+🚀 Overview
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+BizConsult CMS is a content management system built with Laravel 10, designed to power and manage a consultancy agency’s public website.
+The platform includes an elegant front-facing website with multilingual support and a full-featured admin dashboard for managing all business sections — services, features, testimonials, subscribers, messages, members, companies, and basic settings.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+This is a learning project developed as part of the “Laravel For Absolute Beginners 2024 – Level 2” course by Eng. Mahmoud Anwar.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+🏗️ Tech Stack
+Layer	Technology
+Backend	Laravel 10, PHP 8.1
+Authentication	Laravel Breeze
+Frontend	Blade Templates, Bootstrap
+Dashboard Template	TinyDash master
+Website Template	BizConsult 1.0.0
+Localization	mcamara/laravel-localization
+Database	MySQL
+Icons	Font Awesome 5
+📦 Core Features
+🌍 Public Website
 
-## Learning Laravel
+Hero section
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Services section
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+Features section
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Testimonials
 
-## Laravel Sponsors
+Contact Form (messages stored in DB)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Newsletter Subscription (subscribers stored in DB)
 
-### Premium Partners
+Multi-language support (via Laravel Localization)
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+Supports Font Awesome icons
 
-## Contributing
+Styled via Bootstrap and BizConsult template
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+🛠️ Admin Dashboard
 
-## Code of Conduct
+Built using TinyDash template.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+Includes:
 
-## Security Vulnerabilities
+Content Management (CRUD)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+✔ Services
 
-## License
+✔ Features
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+✔ Testimonials
+
+✔ Companies
+
+✔ Members
+
+Data Extraction
+
+✔ Users’ Messages (Contact Form) — list & view
+
+✔ Subscribers List
+
+Admin Interface
+
+✔ Statistics on dashboard home page
+
+✔ Basic settings page
+
+✔ Admin authentication (Laravel Breeze)
+
+✔ Multi-language switching
+
+📊 Dashboard Preview
+
+(Place your uploaded screenshots below — I’ll tell you how to upload them to GitHub in the next step.)
+
+![Dashboard Screenshot](path-to-your-image.png)
+![Public Website Screenshot](path-to-your-image.png)
+
+📁 Project Status
+
+This is a learning & skill-development project, created during Laravel studies and not intended for production use.
+
+📜 License
+
+This project is released under the MIT License.
