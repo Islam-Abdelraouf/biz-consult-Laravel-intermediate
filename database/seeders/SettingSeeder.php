@@ -17,6 +17,11 @@ class SettingSeeder extends Seeder
             'address' => fake()->address(),
             'phone' => fake()->phoneNumber(),
             'email' => fake()->email(),
+            'facebook' => 'https://www.facebook.com/',
+            // 'twitter' => 'https://x.com/',
+            'youtube' => 'https://www.youtube.com/',
+            // 'linkedin' => 'https://www.linkedin.com/',
+            'instagram' => 'https://www.instagram.com/',
         ]);
     }
 }

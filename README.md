@@ -1,66 +1,180 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# BizConsult CMS
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A Laravel-powered content management system (CMS) for a consultancy public website — a learning project built with Laravel 10 to manage public-facing content, provide multilingual support, and offer a full-featured admin dashboard.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](#license) [![Laravel 10](https://img.shields.io/badge/Laravel-10-red.svg)](#tech-stack) [![PHP 8.1+](https://img.shields.io/badge/PHP-8.1%2B-blue.svg)](#tech-stack)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Overview
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+BizConsult CMS is a learning & demo project created during the "Laravel For Absolute Beginners 2024 – Level 2" course by Eng. Mahmoud Anwar. Its purpose is to demonstrate how to build and manage a public-facing consultancy website using Laravel 10 with a polished front-end, multilingual support, and an admin dashboard for managing services, features, testimonials, and other business sections.
 
-## Learning Laravel
+This repository is intended for learning and skill-development and is not recommended for production use.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+---
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+## Key Features
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+Public website (frontend)
+- Hero / landing section
+- Services section
+- Features section
+- Testimonials
+- Contact form (messages stored in DB)
+- Newsletter subscription (subscribers stored in DB)
+- Multi-language support via mcamara/laravel-localization
+- Font Awesome icons and Bootstrap-based styling using the BizConsult website template
 
-## Laravel Sponsors
+Admin dashboard (TinyDash)
+- Full CRUD (create, read, update, delete) for:
+  - Services
+  - Features
+  - Testimonials
+  - Companies
+  - Members
+- Data extraction / management:
+  - Users' messages (contact form) — list & view
+  - Subscribers list
+- Admin utilities:
+  - Dashboard statistics (home)
+  - Basic settings page
+  - Admin authentication (Laravel Breeze)
+  - Language switching for admin & public site
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+---
 
-### Premium Partners
+## Tech stack
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+| Layer            | Technology / Package                           |
+|------------------|------------------------------------------------|
+| Backend          | Laravel 10, PHP 8.1+                           |
+| Authentication   | Laravel Breeze                                 |
+| Frontend         | Blade templates, Bootstrap                     |
+| Dashboard UI     | TinyDash (admin template)                      |
+| Website UI       | BizConsult 1.0.0 (public website template)     |
+| Localization     | mcamara/laravel-localization                   |
+| Database         | MySQL (MySQL 5.7+ / MariaDB 10+)               |
+| Icons            | Font Awesome 5                                 |
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Screenshots / Preview
 
-## Code of Conduct
+- Dashboard Screenshot
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+![Dashboard Screenshot](docs/screenshots/admin-dashboard.jpg)
 
-## Security Vulnerabilities
+- Public Website Screenshot
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+![Public Website Screenshot](docs/screenshots/public-website.jpg)
+
+---
+
+## Project status
+
+This repository is a learning and skill-development project created during Laravel studies and is not intended for production use.
+
+---
+
+## Getting Started (Installation Guide)
+
+Follow these steps to install and run BizConsult CMS locally.
+
+Prerequisites
+
+- PHP 8.1+
+- Composer
+- MySQL (or MariaDB)
+- Node.js & npm (for asset building)
+- Git (recommended)
+- Recommended environments: Laravel Valet, XAMPP, Laragon, WAMP, or Docker
+
+1) Clone the repository
+```bash
+git clone https://github.com/your-username/bizconsult-cms.git
+cd bizconsult-cms
+```
+
+2) Install backend dependencies
+```bash
+composer install
+```
+
+3) Install frontend dependencies and build assets
+```bash
+npm install
+npm run build        # production build
+# during development:
+npm run dev
+```
+
+4) Environment setup
+```bash
+cp .env.example .env
+php artisan key:generate
+```
+
+Example .env database snippet (update with your values):
+```env
+APP_NAME=BizConsult
+APP_ENV=local
+APP_KEY=base64:...
+APP_DEBUG=true
+APP_URL=http://localhost:8000
+
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=biz_consult
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+Create the database (if not already created):
+```sql
+
+CREATE DATABASE bizconsult;
+```
+
+5) Run migrations & seeders
+```bash
+
+php artisan migrate --seed
+# or run seeders manually:
+php artisan db:seed
+```
+
+6) Serve the application
+```bash
+
+php artisan serve
+# Visit: http://localhost:8000
+```
+
+## Development & Contribution
+
+This is primarily a learning project, but contributions are welcome. If you'd like enhancements, documentation updates, or screenshots added:
+
+- Open an issue describing the change you'd like.
+- For code contributions: fork the repo, create a feature branch, implement changes, and open a pull request with a clear description of what you changed and why.
+
+---
+
+## Credits
+
+- Course: "Laravel For Absolute Beginners 2024 – Level 2" by Eng. Mahmoud Anwar
+- Templates:
+  - TinyDash (dashboard)
+  - BizConsult 1.0.0 (public website template)
+- Localization: mcamara/laravel-localization
+- Icons: Font Awesome 5
+
+---
 
 ## License
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+This project is released under the MIT License. See the LICENSE file for details.
+
+---
+

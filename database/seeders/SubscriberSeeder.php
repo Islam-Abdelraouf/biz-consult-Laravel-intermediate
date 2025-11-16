@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Subscriber;
 
 class SubscriberSeeder extends Seeder
 {
@@ -12,6 +13,8 @@ class SubscriberSeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        Subscriber::insert([
+            'email' => 'xumekol@mailinator.com',
+        ]);
     }
 }
