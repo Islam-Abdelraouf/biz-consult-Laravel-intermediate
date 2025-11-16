@@ -57,17 +57,6 @@ Admin dashboard (TinyDash)
 | Database         | MySQL (MySQL 5.7+ / MariaDB 10+)               |
 | Icons            | Font Awesome 5                                 |
 
----
-
-## Screenshots / Preview
-
-- Dashboard Screenshot
-
-![Dashboard Screenshot](docs/screenshots/admin-dashboard.jpg)
-
-- Public Website Screenshot
-
-![Public Website Screenshot](docs/screenshots/public-website.jpg)
 
 ---
 
@@ -92,7 +81,7 @@ Prerequisites
 
 1) Clone the repository
 ```bash
-git clone https://github.com/your-username/bizconsult-cms.git
+git clone https://github.com/Islam-Abdelraouf/biz-consult-Laravel-intermediate.git
 cd bizconsult-cms
 ```
 
@@ -134,7 +123,7 @@ DB_PASSWORD=
 Create the database (if not already created):
 ```sql
 
-CREATE DATABASE bizconsult;
+CREATE DATABASE biz_consult;
 ```
 
 5) Run migrations & seeders
@@ -252,11 +241,6 @@ Admin Interface
 ✔ Multi-language switching
 
 📊 Dashboard Preview
-
-(Place your uploaded screenshots below — I’ll tell you how to upload them to GitHub in the next step.)
-
-![Dashboard Screenshot](path-to-your-image.png)
-![Public Website Screenshot](path-to-your-image.png)
 
 📁 Project Status
 
