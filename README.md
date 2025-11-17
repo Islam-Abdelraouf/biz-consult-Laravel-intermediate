@@ -69,9 +69,9 @@ This repository is a learning and skill-development project created during Larav
 ## Project screenshots
 
 Frontend website
-<img src="https://github.com/Islam-Abdelraouf/biz-consult-Laravel-intermediate/docs/screenshot/public-website.jpg">
+<img src="docs/screenshot/public-website.jpg">
 Backend website
-<img src="https://github.com/Islam-Abdelraouf/biz-consult-Laravel-intermediate/docs/screenshot/admin-dashboard.jpg">
+<img src="docs/screenshot/admin-dashboard.jpg">
 
 ---
 
